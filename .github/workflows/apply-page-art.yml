@@ -1,0 +1,40 @@
+name: Apply page art
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-page-art.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add visual stylesheet and page markers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          pages={
+            'index.html':'home','prophetes.html':'prophetes','piliers.html':'piliers',
+            'hadiths.html':'hadiths','hadiths-11-20.html':'hadiths','hadiths-21-30.html':'hadiths','hadiths-31-40.html':'hadiths',
+            'invocations.html':'invocations','priere.html':'priere'
+          }
+          for fn,page in pages.items():
+              p=Path(fn)
+              if not p.exists(): continue
+              s=p.read_text(encoding='utf-8')
+              if 'href="visuals.css"' not in s:
+                  s=s.replace('</head>','<link rel="stylesheet" href="visuals.css">\n</head>',1)
+              if '<body>' in s:
+                  s=s.replace('<body>',f'<body data-page="{page}">',1)
+              elif '<body ' in s and 'data-page=' not in s:
+                  s=s.replace('<body ',f'<body data-page="{page}" ',1)
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html prophetes.html piliers.html hadiths*.html invocations.html priere.html
+          git diff --cached --quiet || git commit -m "Apply premium page visuals across site"
+          git push
