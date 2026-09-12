@@ -13,6 +13,7 @@ body[data-page="home"] #accueil.hero{
   background-image:linear-gradient(90deg,rgba(4,31,26,.92) 0%,rgba(4,31,26,.70) 46%,rgba(4,31,26,.18) 100%),url('assets/banner-prophetes.png')!important;
   background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
   min-height:clamp(430px,55vw,620px)!important;display:flex;align-items:center;
+  margin:14px auto 0!important;width:calc(100% - 24px)!important;max-width:1460px!important;border-radius:28px!important;overflow:hidden!important;
 }
 body[data-page="home"] #accueil.hero::before,
 body[data-page="home"] #accueil.hero::after{display:none!important;content:none!important;background:none!important}
@@ -48,6 +49,9 @@ body[data-page="home"] #rubriques .topic-card p{color:#f1e8d5!important;font-siz
 body[data-page="home"] #rubriques .topic-card .topic-label{color:#f0ce82!important;background:rgba(7,43,35,.6)!important;border:1px solid rgba(240,206,130,.32)!important;padding:7px 10px!important;border-radius:999px!important;width:max-content!important;backdrop-filter:blur(7px)}
 body[data-page="home"] #rubriques .topic-card::after{color:#f2d084!important;font-size:28px!important;right:24px!important;bottom:22px!important}
 
+/* Remove the small round numbered badges above the 3 learning cards */
+body[data-page="home"] #parcours .path-card .step{display:none!important}
+
 /* 99 names premium banner */
 body[data-page="home"] #noms::before{
   content:""!important;display:block!important;width:min(1180px,calc(100% - 32px))!important;margin:0 auto 34px!important;
@@ -55,6 +59,8 @@ body[data-page="home"] #noms::before{
   background-image:url('assets/banner-99noms.png')!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
   border:1px solid rgba(208,168,94,.42)!important;box-shadow:0 26px 70px rgba(18,61,52,.18)!important;
 }
+/* Remove the long explanatory note under the 99 names list */
+body[data-page="home"] #noms .note{display:none!important}
 
 /* Prayer: remove obsolete empty media box before Wudu cards */
 body[data-page="priere"] #ablutions .container::before{display:none!important;content:none!important}
@@ -86,7 +92,7 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
 
 /* Mobile spacing */
 @media(max-width:640px){
-  body[data-page="home"] #accueil.hero{min-height:560px!important;background-position:62% center!important;padding:46px 0!important}
+  body[data-page="home"] #accueil.hero{min-height:560px!important;background-position:62% center!important;padding:46px 0!important;margin-top:10px!important;width:calc(100% - 14px)!important;border-radius:20px!important}
   body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:none!important}
   body[data-page="home"] #rubriques{padding-top:50px!important}
   body[data-page="home"] #rubriques .grid{gap:16px!important}
