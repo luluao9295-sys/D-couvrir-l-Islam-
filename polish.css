@@ -8,17 +8,18 @@
   .menu-btn,.mobile-menu-btn{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;border-radius:13px!important}
 }
 
-/* Homepage hero — premium background only, no extra decoration/card */
+/* Homepage hero — clean premium banner with breathing room */
 body[data-page="home"] #accueil.hero{
   background-image:linear-gradient(90deg,rgba(4,31,26,.92) 0%,rgba(4,31,26,.70) 46%,rgba(4,31,26,.18) 100%),url('assets/banner-prophetes.png')!important;
   background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
   min-height:clamp(430px,55vw,620px)!important;display:flex;align-items:center;
-  margin:14px auto 0!important;width:calc(100% - 24px)!important;max-width:1460px!important;border-radius:28px!important;overflow:hidden!important;
+  margin:24px auto 0!important;width:calc(100% - 32px)!important;max-width:1460px!important;border-radius:28px!important;overflow:hidden!important;
+  padding-top:82px!important;padding-bottom:72px!important;
 }
 body[data-page="home"] #accueil.hero::before,
 body[data-page="home"] #accueil.hero::after{display:none!important;content:none!important;background:none!important}
 body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:780px!important;margin-left:0!important}
-body[data-page="home"] #accueil h1{color:#fff7df!important;text-shadow:0 4px 34px rgba(0,0,0,.42)!important}
+body[data-page="home"] #accueil h1{color:#fff7df!important;text-shadow:0 4px 34px rgba(0,0,0,.42)!important;margin-top:0!important}
 body[data-page="home"] #accueil p{color:#f3ead6!important;text-shadow:0 2px 18px rgba(0,0,0,.34)!important}
 body[data-page="home"] #accueil .eyebrow{background:rgba(9,49,40,.64)!important;color:#f4d58e!important;border-color:rgba(244,213,142,.44)!important;backdrop-filter:blur(9px)}
 body[data-page="home"] #accueil .btn.primary{background:#f1d08a!important;color:#123d34!important;border-color:#f1d08a!important}
@@ -26,7 +27,7 @@ body[data-page="home"] #accueil .btn.secondary{background:rgba(255,255,255,.13)!
 body[data-page="home"] #accueil .hero-card{display:none!important}
 body[data-page="home"] .stats{display:none!important}
 
-/* Homepage topic cards — image-led, no round logo/icon */
+/* Homepage topic cards */
 body[data-page="home"] #rubriques .topic-card{
   min-height:390px!important;padding:28px!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;
   background-size:cover!important;background-repeat:no-repeat!important;background-position:center!important;
@@ -39,96 +40,77 @@ body[data-page="home"] #rubriques .topic-card::before{
 }
 body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
-body[data-page="home"] #rubriques .topic-card[href="#noms"]{background-image:url('assets/banner-99noms.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="invocations"]{background-image:url('assets/banner-invocations.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="priere"]{background-image:url('assets/banner-priere.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="noms"]{display:none!important}
 body[data-page="home"] #rubriques .topic-card .topic-icon{display:none!important;width:0!important;height:0!important;margin:0!important;padding:0!important;border:0!important}
 body[data-page="home"] #rubriques .topic-card h3{color:#fff7df!important;font-size:30px!important;text-shadow:0 3px 20px rgba(0,0,0,.45)!important}
 body[data-page="home"] #rubriques .topic-card p{color:#f1e8d5!important;font-size:16px!important;text-shadow:0 2px 14px rgba(0,0,0,.4)!important}
 body[data-page="home"] #rubriques .topic-card .topic-label{color:#f0ce82!important;background:rgba(7,43,35,.6)!important;border:1px solid rgba(240,206,130,.32)!important;padding:7px 10px!important;border-radius:999px!important;width:max-content!important;backdrop-filter:blur(7px)}
 body[data-page="home"] #rubriques .topic-card::after{color:#f2d084!important;font-size:28px!important;right:24px!important;bottom:22px!important}
 
-/* Remove the small round numbered badges above the 3 learning cards */
+/* Keep the homepage simple */
 body[data-page="home"] #parcours .path-card .step{display:none!important}
-
-/* 99 names premium banner */
-body[data-page="home"] #noms::before{
-  content:""!important;display:block!important;width:min(1180px,calc(100% - 32px))!important;margin:0 auto 34px!important;
-  aspect-ratio:16/6!important;border-radius:28px!important;
-  background-image:url('assets/banner-99noms.png')!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
-  border:1px solid rgba(208,168,94,.42)!important;box-shadow:0 26px 70px rgba(18,61,52,.18)!important;
-}
-/* Remove the long explanatory note under the 99 names list */
-body[data-page="home"] #noms .note{display:none!important}
+body[data-page="home"] #noms{display:none!important}
 
 /* Prayer: remove obsolete empty media box before Wudu cards */
 body[data-page="priere"] #ablutions .container::before{display:none!important;content:none!important}
 
-/* Burger menu — real vertical mobile panel, no horizontal overflow */
+/* Robust burger menu for portrait/mobile — anchored under the header */
 @media(max-width:980px){
-  body[data-page="home"] .site-header{overflow:visible!important}
-  body[data-page="home"] .site-header .nav{
-    display:none!important;position:fixed!important;top:74px!important;left:12px!important;right:12px!important;width:auto!important;
-    max-height:calc(100dvh - 90px)!important;overflow-y:auto!important;overflow-x:hidden!important;
-    flex-direction:column!important;align-items:stretch!important;gap:4px!important;padding:12px!important;
-    background:rgba(251,247,239,.98)!important;border:1px solid rgba(18,61,52,.12)!important;border-radius:18px!important;
-    box-shadow:0 24px 70px rgba(18,61,52,.24)!important;backdrop-filter:blur(18px)!important;z-index:9999!important;
-  }
-  body[data-page="home"] .site-header .nav.open{display:flex!important}
-  body[data-page="home"] .site-header .nav a{display:block!important;width:100%!important;padding:12px 14px!important;border-radius:12px!important;white-space:normal!important;font-size:16px!important;line-height:1.25!important;color:#123d34!important}
-  body[data-page="home"] .site-header .nav a:hover{background:#f1eadf!important}
+  body[data-page="home"] .site-header,
+  body[data-page="noms"] .site-header{overflow:visible!important;position:sticky!important;top:0!important;z-index:1000!important}
 
-  header .mobile-collapsible{
-    display:none!important;position:fixed!important;top:72px!important;left:12px!important;right:12px!important;width:auto!important;
-    max-height:calc(100dvh - 88px)!important;overflow-y:auto!important;overflow-x:hidden!important;
-    flex-direction:column!important;align-items:stretch!important;gap:4px!important;padding:12px!important;
-    background:rgba(251,247,239,.98)!important;border:1px solid rgba(18,61,52,.12)!important;border-radius:18px!important;
-    box-shadow:0 24px 70px rgba(18,61,52,.24)!important;backdrop-filter:blur(18px)!important;z-index:9999!important;
-  }
-  header .mobile-collapsible.open{display:flex!important}
-  header .mobile-collapsible a{display:block!important;width:100%!important;padding:12px 14px!important;border-radius:12px!important;white-space:normal!important;font-size:16px!important;line-height:1.25!important}
-}
-
-/* Mobile spacing */
-@media(max-width:640px){
-  body[data-page="home"] #accueil.hero{min-height:560px!important;background-position:62% center!important;padding:46px 0!important;margin-top:10px!important;width:calc(100% - 14px)!important;border-radius:20px!important}
-  body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:none!important}
-  body[data-page="home"] #rubriques{padding-top:50px!important}
-  body[data-page="home"] #rubriques .grid{gap:16px!important}
-  body[data-page="home"] #rubriques .topic-card{min-height:330px!important;padding:22px!important;border-radius:24px!important}
-  body[data-page="home"] #rubriques .topic-card h3{font-size:27px!important;margin-bottom:8px!important}
-  body[data-page="home"] #noms::before{width:calc(100% - 22px)!important;aspect-ratio:16/9!important;border-radius:20px!important;margin-bottom:24px!important}
-  .section{padding-top:48px!important;padding-bottom:48px!important}
-}
-
-/* v6 - hard mobile burger and simple home */
-@media(max-width:980px){
   body[data-page="home"] .site-header .nav,
   body[data-page="noms"] .site-header .nav{
     display:none!important;
-    position:fixed!important;
-    top:72px!important;
-    left:12px!important;
-    right:12px!important;
+    position:absolute!important;
+    top:calc(100% + 8px)!important;
+    left:10px!important;
+    right:10px!important;
     width:auto!important;
+    height:auto!important;
+    max-height:calc(100dvh - 92px)!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
     flex-direction:column!important;
     align-items:stretch!important;
+    justify-content:flex-start!important;
     gap:4px!important;
-    padding:12px!important;
+    padding:10px!important;
+    margin:0!important;
     background:#fbf7ef!important;
     border:1px solid rgba(18,61,52,.14)!important;
     border-radius:18px!important;
     box-shadow:0 24px 70px rgba(18,61,52,.24)!important;
-    z-index:10000!important;
-    overflow:hidden!important;
+    z-index:10001!important;
+    transform:none!important;
   }
   body[data-page="home"] .site-header .nav.open,
   body[data-page="noms"] .site-header .nav.open{display:flex!important}
   body[data-page="home"] .site-header .nav a,
   body[data-page="noms"] .site-header .nav a{
-    display:block!important;width:100%!important;padding:12px 14px!important;
-    border-radius:12px!important;white-space:normal!important;color:#123d34!important;
+    display:block!important;width:100%!important;padding:13px 14px!important;
+    margin:0!important;border-radius:12px!important;white-space:normal!important;
+    font-size:16px!important;line-height:1.25!important;color:#123d34!important;text-align:left!important;
   }
+  body[data-page="home"] .site-header .nav a:hover,
+  body[data-page="noms"] .site-header .nav a:hover{background:#f1eadf!important}
 }
-body[data-page="home"] #noms{display:none!important}
+
+/* Mobile spacing */
+@media(max-width:640px){
+  body[data-page="home"] #accueil.hero{
+    min-height:560px!important;background-position:62% center!important;
+    padding:82px 0 54px!important;margin-top:18px!important;
+    width:calc(100% - 18px)!important;border-radius:20px!important;
+  }
+  body[data-page="home"] #accueil h1{font-size:clamp(46px,13vw,64px)!important;line-height:1.02!important;margin-bottom:22px!important}
+  body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:none!important}
+  body[data-page="home"] #rubriques{padding-top:50px!important}
+  body[data-page="home"] #rubriques .grid{gap:16px!important}
+  body[data-page="home"] #rubriques .topic-card{min-height:330px!important;padding:22px!important;border-radius:24px!important}
+  body[data-page="home"] #rubriques .topic-card h3{font-size:27px!important;margin-bottom:8px!important}
+  .section{padding-top:48px!important;padding-bottom:48px!important}
+}
