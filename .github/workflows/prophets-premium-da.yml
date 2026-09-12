@@ -81,8 +81,6 @@ body[data-page="prophetes"] .symbol{
 }
 body[data-page="prophetes"] .symbol::before,
 body[data-page="prophetes"] .symbol::after{display:none!important}
-body[data-page="prophetes"] .card:nth-child(3n+2) .symbol{filter:hue-rotate(-5deg) saturate(.92) brightness(1.03)}
-body[data-page="prophetes"] .card:nth-child(3n) .symbol{filter:saturate(.88) contrast(1.04)}
 body[data-page="prophetes"] .card h3{
   font-size:31px!important;
   letter-spacing:-.035em!important;
@@ -135,3 +133,4 @@ CSS
           git add visuals.css prophetes.html
           git diff --cached --quiet || git commit -m "Apply premium emerald gold DA to prophets page"
           git push
+# trigger 2
