@@ -1,0 +1,51 @@
+name: Prayer visual redesign
+on:
+  push:
+    paths:
+      - '.github/workflows/prayer-visual-upgrade.yml'
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade prayer page visuals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('priere.html')
+          s=p.read_text(encoding='utf-8')
+          marker='/* prayer-visual-v2 */'
+          if marker not in s:
+              css=r'''
+/* prayer-visual-v2 */
+.prayer-visual-shell{background:linear-gradient(180deg,#fffdf9 0%,#f8f2e8 100%)}
+.hero{position:relative;overflow:hidden;padding:88px 0 74px!important;background:linear-gradient(115deg,rgba(12,42,37,.96),rgba(18,61,52,.83) 46%,rgba(185,147,82,.30)),radial-gradient(circle at 78% 28%,rgba(255,216,145,.45),transparent 24%),linear-gradient(135deg,#153f36,#d8c097)!important;color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to right,#000,transparent 72%);pointer-events:none}
+.hero .container{position:relative;z-index:1}.hero h1{color:#fff!important;max-width:760px;text-shadow:0 6px 24px rgba(0,0,0,.16)}.hero p{color:rgba(255,255,255,.88)!important;max-width:720px}.hero .tag{background:rgba(255,255,255,.12)!important;color:#fff!important;border-color:rgba(255,255,255,.22)!important}.hero .note{max-width:760px;background:rgba(255,255,255,.12)!important;color:#fff;border:1px solid rgba(255,255,255,.18)!important;border-left:4px solid #e9c17d!important;backdrop-filter:blur(12px)}
+.progress{margin-top:30px!important}.progress div{background:rgba(255,255,255,.12)!important;color:#fff!important;border-color:rgba(255,255,255,.16)!important;backdrop-filter:blur(10px);font-size:14px!important}
+.section h2{font-size:clamp(31px,4.2vw,48px);margin:0 0 10px}.section>.container>p:first-of-type{font-size:17px;color:#536963;max-width:760px}
+.wudu-intro{margin:22px 0 18px!important}.wudu-intro span{box-shadow:0 10px 26px rgba(18,61,52,.06)}
+.wudu-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}.wudu-card{min-height:230px!important;border-radius:24px!important;padding:18px!important;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}.wudu-card:before{content:"";position:absolute;inset:auto -28px -28px auto;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(185,147,82,.13),transparent 68%)}.wudu-visual{width:100%!important;height:112px!important;border-radius:18px!important;font-size:48px!important;background:linear-gradient(145deg,#eef6f1 0%,#f6ead7 100%)!important;box-shadow:inset 0 0 0 1px rgba(18,61,52,.05)}.wudu-card h3{font-size:21px!important}.count{top:14px!important;right:14px!important;font-size:14px!important;box-shadow:0 8px 20px rgba(18,61,52,.18)}
+.five{gap:14px!important}.five .prayer{position:relative;overflow:hidden;min-height:210px;padding-top:66px!important;background:linear-gradient(180deg,#fff 0%,#f9f4ec 100%)!important}.five .prayer:before{content:"";position:absolute;left:0;right:0;top:0;height:54px;background:linear-gradient(120deg,rgba(18,61,52,.08),rgba(185,147,82,.22))}.five .prayer:nth-child(1):before{background:linear-gradient(120deg,#ead9d0,#f4c7a1)}.five .prayer:nth-child(2):before{background:linear-gradient(120deg,#efe4c8,#f5d17d)}.five .prayer:nth-child(3):before{background:linear-gradient(120deg,#dfe7d8,#d6b877)}.five .prayer:nth-child(4):before{background:linear-gradient(120deg,#d8b4a6,#d88262)}.five .prayer:nth-child(5):before{background:linear-gradient(120deg,#aab9c8,#485f78)}.five .prayer .tag{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:1}.five .prayer strong{font-size:36px!important}
+.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px!important}.step{position:relative;min-height:150px;padding:22px 22px 22px 74px!important;background:linear-gradient(180deg,#fff,#fbf7ef)!important}.step .num{position:absolute;left:20px;top:20px;width:40px!important;height:40px!important;box-shadow:0 8px 18px rgba(18,61,52,.15)}.step h3{font-size:21px!important}.step p{color:#536963}
+.grid .card{border-radius:24px!important;background:linear-gradient(180deg,#fff,#fdfaf4)}.arabic{background:#eff7f2;border:1px solid rgba(18,61,52,.08);padding:14px 16px;border-radius:16px}.adhkar .card{background:linear-gradient(135deg,#fff,#f5efe5)!important}
+.section.alt{background:linear-gradient(180deg,#f5eee3,#f8f3eb)!important}
+@media(hover:hover) and (pointer:fine){.wudu-card:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(18,61,52,.12)}}
+@media(max-width:900px){.wudu-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.steps{grid-template-columns:1fr}.hero{padding:72px 0 58px!important}}
+@media(max-width:620px){.hero{padding:54px 0 42px!important}.hero h1{font-size:clamp(40px,13vw,60px)!important}.progress{grid-template-columns:repeat(2,1fr)!important}.wudu-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}.wudu-card{min-height:205px!important;padding:14px!important}.wudu-visual{height:92px!important;font-size:40px!important}.wudu-card h3{font-size:18px!important}.wudu-card p{font-size:14px}.count{padding:6px 9px!important}.five{grid-template-columns:repeat(2,1fr)!important}.five .prayer:last-child{grid-column:1/-1}.step{padding:18px 16px 18px 66px!important}.step .num{left:14px;top:16px}.arabic{padding:12px!important}.section h2{font-size:34px}}
+'''
+              s=s.replace('</style>',css+'\n</style>',1)
+          old='<section class="hero"><div class="container"><span class="tag">🕌 Guide débutant</span><h1>Apprendre la prière, pas à pas</h1><p>Un guide simple pour comprendre les ablutions, les horaires, les cinq prières obligatoires, les mouvements et les récitations essentielles.</p>'
+          new='<section class="hero"><div class="container"><span class="tag">🕌 Guide illustré</span><h1>Apprendre la prière, pas à pas</h1><p>Un parcours visuel, simple et apaisant pour apprendre les ablutions, les cinq prières, les mouvements et les récitations essentielles.</p>'
+          s=s.replace(old,new)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add priere.html
+          git diff --cached --quiet || git commit -m "Redesign prayer page visuals"
+          git push
