@@ -108,7 +108,7 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
   body[data-page="noms"] .site-header .nav a:hover{background:#f1eadf!important}
 }
 
-/* 99 names page — premium banner + dedicated logo */
+/* 99 names page — restore the original long banner */
 body[data-page="noms"] #noms .container::before{
   content:""!important;
   display:block!important;
@@ -116,11 +116,10 @@ body[data-page="noms"] #noms .container::before{
   aspect-ratio:16/5!important;
   margin:0 0 34px 0!important;
   border-radius:28px!important;
-  background:
-    radial-gradient(circle at 22% 50%,rgba(208,168,94,.24),transparent 22%),
-    radial-gradient(circle at 78% 32%,rgba(255,255,255,.08),transparent 18%),
-    url('assets/premium-noms.svg') center/150px 150px no-repeat,
-    linear-gradient(135deg,#0b3c32 0%,#123d34 52%,#1a5849 100%)!important;
+  background-image:url('assets/banner-99noms.png')!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
   border:1px solid rgba(208,168,94,.55)!important;
   box-shadow:0 24px 60px rgba(18,61,52,.18)!important;
 }
@@ -140,10 +139,9 @@ body[data-page="noms"] #noms .section-head > div:first-child::before{
     aspect-ratio:16/8!important;
     margin-bottom:24px!important;
     border-radius:20px!important;
-    background:
-      radial-gradient(circle at 24% 50%,rgba(208,168,94,.24),transparent 26%),
-      url('assets/premium-noms.svg') center/108px 108px no-repeat,
-      linear-gradient(135deg,#0b3c32 0%,#123d34 58%,#1a5849 100%)!important;
+    background-image:url('assets/banner-99noms.png')!important;
+    background-size:cover!important;
+    background-position:center!important;
   }
   body[data-page="noms"] #noms .section-head > div:first-child::before{
     width:66px!important;height:66px!important;margin-bottom:14px!important;
