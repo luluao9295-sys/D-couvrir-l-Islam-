@@ -103,6 +103,11 @@ body[data-page="priere"] .hero{
   background-position:center!important;
 }
 
+/* La bannière Prophètes contient déjà son texte dans l'image : ne pas le superposer en HTML. */
+body[data-page="prophetes"] .hero > .container{
+  visibility:hidden!important;
+}
+
 /* 99 noms: use the same edge-to-edge banner treatment */
 body[data-page="noms"] main::before{
   content:""!important;
@@ -126,7 +131,6 @@ body[data-page="noms"] #noms{
 }
 
 /* More consistent banner text spacing */
-body[data-page="prophetes"] .hero > .container,
 body[data-page="piliers"] .hero > .container,
 body[data-page="hadiths"] .hero > .container,
 body[data-page="invocations"] .hero > .container,
@@ -156,18 +160,22 @@ body[data-page="priere"] .hero > .container{
   }
 }
 
-/* Libellé uniforme de la rubrique des prophètes dans tous les menus. */
+/* Remplace proprement le libellé de la rubrique sans jamais afficher l'ancien texte. */
 a[href="prophetes.html"]{
-  font-size:0!important;
+  position:relative!important;
+  text-indent:-9999px!important;
+  overflow:hidden!important;
 }
 a[href="prophetes.html"]::after{
-  content:"L’histoire des prophètes";
-  font-size:13px;
-  font-weight:800;
+  content:"L’histoire des prophètes"!important;
+  display:block!important;
+  text-indent:0!important;
+  font-size:13px!important;
+  font-weight:800!important;
 }
 @media(max-width:900px){
   .mobile-collapsible a[href="prophetes.html"]::after,
   .site-header .nav#mainNav a[href="prophetes.html"]::after{
-    font-size:16px;
+    font-size:16px!important;
   }
 }
