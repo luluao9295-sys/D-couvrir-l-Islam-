@@ -69,3 +69,23 @@ body[data-page="prophetes"] .card:nth-child(8) .symbol{
   body[data-page="priere"] .five .prayer::after{top:80px!important;height:38px!important}
 }
 @media(max-width:430px){body[data-page="priere"] .five{grid-template-columns:1fr!important}body[data-page="priere"] .five .prayer{min-height:260px!important}}
+
+/* 25 emblèmes individuels : un fichier SVG distinct par prophète. */
+body[data-page="prophetes"] .card .symbol.prophet-symbol{
+  width:76px!important;
+  height:76px!important;
+  border-radius:20px!important;
+  margin:0 0 18px!important;
+  background-image:none!important;
+  background:radial-gradient(circle at 34% 26%,#235d50 0%,#0d3a31 72%)!important;
+  border:1px solid rgba(218,180,99,.72)!important;
+  box-shadow:0 14px 34px rgba(18,61,52,.2),inset 0 0 0 3px rgba(255,255,255,.05)!important;
+}
+body[data-page="prophetes"] .card .symbol.prophet-symbol img{
+  width:46px!important;
+  height:46px!important;
+}
+@media(max-width:640px){
+  body[data-page="prophetes"] .card .symbol.prophet-symbol{width:68px!important;height:68px!important;border-radius:18px!important}
+  body[data-page="prophetes"] .card .symbol.prophet-symbol img{width:39px!important;height:39px!important}
+}
