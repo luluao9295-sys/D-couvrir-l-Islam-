@@ -29,3 +29,37 @@ body[data-page="priere"] .hero::after{
     margin:24px auto 0!important;
   }
 }
+
+/* Prophètes — nouveau visuel premium symbolique */
+body[data-page="prophetes"]{--page-art:url('assets/prophetes-symboles-premium.webp')!important}
+body[data-page="prophetes"] .hero::after{
+  aspect-ratio:240/339!important;
+  width:min(26vw,300px)!important;
+  background-size:contain!important;
+  filter:drop-shadow(0 24px 36px rgba(18,61,52,.24))!important;
+}
+.topic-card[href*="prophetes"] .topic-icon{
+  background-image:url('assets/prophetes-symboles-premium.webp')!important;
+  background-size:cover!important;
+  background-position:center top!important;
+}
+
+/* Ablutions — visuel premium dans la rubrique correspondante */
+body[data-page="priere"] #ablutions .container::before{
+  content:"";
+  display:block;
+  width:100%;
+  aspect-ratio:420/280;
+  margin:0 0 28px;
+  border-radius:26px;
+  background-image:url('assets/ablutions-premium.webp');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border:1px solid rgba(185,147,82,.35);
+  box-shadow:0 24px 60px rgba(18,61,52,.16);
+}
+@media(max-width:900px){
+  body[data-page="prophetes"] .hero::after{width:min(72vw,280px)!important;margin:24px auto 0!important}
+  body[data-page="priere"] #ablutions .container::before{border-radius:20px;margin-bottom:20px}
+}
