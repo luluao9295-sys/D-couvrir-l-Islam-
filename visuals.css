@@ -69,3 +69,24 @@ body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-positio
 body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-position:87.1% 66%!important}
 body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-position:99.5% 66%!important}
 @media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:88px!important}}
+
+/* FINAL APPROVED ARTWORK — homepage rubric emblems */
+.topic-icon{background-size:160% auto!important;background-position:center 16%!important}
+.topic-card[href*="piliers"] .topic-icon{background-image:url('emble%CC%80me_dore%CC%81_des_cinq_piliers_de_l_islam.png')!important}
+.topic-card[href="#noms"] .topic-icon{background-image:url('me%CC%81daille_islamique_dore%CC%81e_sur_fond_e%CC%81meraude.png')!important}
+.topic-card[href*="hadiths"] .topic-icon{background-image:url('emble%CC%80me_islamique_dore%CC%81_au_lanternon_lumineux.png')!important}
+.topic-card[href*="invocations"] .topic-icon{background-image:url('emble%CC%80me_dore%CC%81_des_invocations_quotidiennes.png')!important}
+.topic-card[href*="priere"] .topic-icon{background-image:url('e%CC%81le%CC%81gance_nocturne_de_la_prie%CC%80re_musulmane.png')!important}
+.topic-card[href*="prophetes"] .topic-icon{background-image:url('prophe%CC%80tes_oasis_dore%CC%81e_sous_la_lune.png')!important}
+
+/* FINAL APPROVED ARTWORK — individual wudu steps */
+body[data-page="priere"] .wudu-visual{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#0d3a31!important}
+body[data-page="priere"] .wudu-card:nth-child(1) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_mains_sous_l_eau.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(2) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_buccal.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(3) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_nasal.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(4) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_ablutions_sur_fond_e%CC%81meraude.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(5) .wudu-visual{background-image:url('lavage_rituel_des_bras_sous_l_eau.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-image:url('emble%CC%80me_dore%CC%81_du_lavage_rituel.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_du_lavage_de_l_oreille.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-image:url('ablution_dore%CC%81e_sous_arche_islamique.png')!important}
+@media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:96px!important}}
