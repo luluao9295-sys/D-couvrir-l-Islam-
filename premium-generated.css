@@ -64,3 +64,97 @@ body[data-page="priere"] #ablutions .container::before{
   body[data-page="prophetes"] .hero::after{width:min(72vw,280px)!important;margin:24px auto 0!important}
   body[data-page="priere"] #ablutions .container::before{border-radius:20px;margin-bottom:20px}
 }
+
+/* Final premium banner system — same emerald/gold art direction */
+body[data-page="piliers"] .hero,
+body[data-page="hadiths"] .hero,
+body[data-page="invocations"] .hero,
+body[data-page="priere"] .hero,
+body[data-page="prophetes"] .hero{
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  min-height:clamp(360px,48vw,560px);
+  display:flex;
+  align-items:center;
+}
+body[data-page="piliers"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-piliers.png')!important}
+body[data-page="hadiths"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-hadiths.png')!important}
+body[data-page="invocations"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-invocations.png')!important}
+body[data-page="priere"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-priere.png')!important}
+body[data-page="prophetes"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-prophetes.png')!important}
+body[data-page="piliers"] .hero::after,
+body[data-page="hadiths"] .hero::after,
+body[data-page="invocations"] .hero::after,
+body[data-page="priere"] .hero::after,
+body[data-page="prophetes"] .hero::after{display:none!important}
+body[data-page="piliers"] .hero h1,
+body[data-page="hadiths"] .hero h1,
+body[data-page="invocations"] .hero h1,
+body[data-page="priere"] .hero h1,
+body[data-page="prophetes"] .hero h1{color:#fff7df!important;text-shadow:0 3px 28px rgba(0,0,0,.35)}
+body[data-page="piliers"] .hero p,
+body[data-page="hadiths"] .hero p,
+body[data-page="invocations"] .hero p,
+body[data-page="priere"] .hero p,
+body[data-page="prophetes"] .hero p{color:#f5ead0!important;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+body[data-page="piliers"] .hero .tag,
+body[data-page="hadiths"] .hero .tag,
+body[data-page="invocations"] .hero .tag,
+body[data-page="priere"] .hero .tag,
+body[data-page="prophetes"] .hero .tag,
+body[data-page="piliers"] .hero .eyebrow,
+body[data-page="hadiths"] .hero .eyebrow,
+body[data-page="invocations"] .hero .eyebrow,
+body[data-page="priere"] .hero .eyebrow,
+body[data-page="prophetes"] .hero .eyebrow{background:rgba(8,45,37,.64)!important;color:#f7d98d!important;border-color:rgba(247,217,141,.42)!important;backdrop-filter:blur(8px)}
+
+/* 99 noms lives on the homepage: add its own full-width visual banner */
+body[data-page="home"] #noms{position:relative;overflow:hidden}
+body[data-page="home"] #noms::before{
+  content:"";
+  display:block;
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto 34px;
+  aspect-ratio:16/6;
+  border-radius:28px;
+  background-image:url('assets/banner-99noms.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border:1px solid rgba(185,147,82,.34);
+  box-shadow:0 26px 70px rgba(18,61,52,.18);
+}
+@media(max-width:900px){
+  body[data-page="piliers"] .hero,
+  body[data-page="hadiths"] .hero,
+  body[data-page="invocations"] .hero,
+  body[data-page="priere"] .hero,
+  body[data-page="prophetes"] .hero{
+    min-height:430px;
+    background-position:center!important;
+  }
+  body[data-page="piliers"] .hero,
+  body[data-page="hadiths"] .hero,
+  body[data-page="invocations"] .hero,
+  body[data-page="priere"] .hero,
+  body[data-page="prophetes"] .hero{
+    background-blend-mode:normal!important;
+  }
+  body[data-page="home"] #noms::before{width:min(100% - 22px,1180px);aspect-ratio:16/9;border-radius:20px;margin-bottom:24px}
+}
+@media(max-width:640px){
+  body[data-page="piliers"] .hero,
+  body[data-page="hadiths"] .hero,
+  body[data-page="invocations"] .hero,
+  body[data-page="priere"] .hero,
+  body[data-page="prophetes"] .hero{
+    min-height:390px;
+    background-position:62% center!important;
+  }
+  body[data-page="piliers"] .hero .container,
+  body[data-page="hadiths"] .hero .container,
+  body[data-page="invocations"] .hero .container,
+  body[data-page="priere"] .hero .container,
+  body[data-page="prophetes"] .hero .container{padding-top:18px;padding-bottom:18px}
+}
