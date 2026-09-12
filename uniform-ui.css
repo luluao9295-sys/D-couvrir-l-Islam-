@@ -103,9 +103,29 @@ body[data-page="priere"] .hero{
   background-position:center!important;
 }
 
-/* La bannière Prophètes contient déjà son texte dans l'image : ne pas le superposer en HTML. */
+/* Bannière Prophètes : afficher uniquement le titre par-dessus l'image. */
 body[data-page="prophetes"] .hero > .container{
-  visibility:hidden!important;
+  visibility:visible!important;
+  padding-top:28px!important;
+  padding-bottom:28px!important;
+}
+body[data-page="prophetes"] .hero .eyebrow,
+body[data-page="prophetes"] .hero p{
+  display:none!important;
+}
+body[data-page="prophetes"] .hero h1{
+  margin:0!important;
+  color:#fff!important;
+  text-shadow:0 3px 16px rgba(0,0,0,.48)!important;
+  font-size:0!important;
+}
+body[data-page="prophetes"] .hero h1::after{
+  content:"L’histoire des prophètes"!important;
+  display:block!important;
+  font-family:Georgia,serif!important;
+  font-size:clamp(42px,7vw,78px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.035em!important;
 }
 
 /* 99 noms: use the same edge-to-edge banner treatment */
@@ -148,6 +168,10 @@ body[data-page="priere"] .hero > .container{
   body[data-page="noms"] main::before{
     min-height:390px!important;
     background-position:62% center!important;
+  }
+
+  body[data-page="prophetes"] .hero h1::after{
+    font-size:clamp(40px,11vw,58px)!important;
   }
 
   body[data-page="noms"] #noms{
