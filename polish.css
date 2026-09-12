@@ -108,6 +108,23 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
   body[data-page="noms"] .site-header .nav a:hover{background:#f1eadf!important}
 }
 
+/* 99 names page — restore a clean dedicated logo */
+body[data-page="noms"] #noms .section-head > div:first-child::before{
+  content:""!important;
+  display:block!important;
+  width:78px!important;
+  height:78px!important;
+  margin:0 0 18px 0!important;
+  border-radius:50%!important;
+  background:url('assets/premium-noms.svg') center/cover no-repeat!important;
+  box-shadow:0 14px 34px rgba(18,61,52,.16)!important;
+}
+@media(max-width:640px){
+  body[data-page="noms"] #noms .section-head > div:first-child::before{
+    width:66px!important;height:66px!important;margin-bottom:14px!important;
+  }
+}
+
 /* Mobile spacing */
 @media(max-width:640px){
   body[data-page="home"] #accueil.hero{
