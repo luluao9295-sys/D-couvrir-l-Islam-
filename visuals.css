@@ -27,4 +27,13 @@ body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolatio
 .count{letter-spacing:.05em;font-size:12px!important;padding:7px 12px!important;box-shadow:none!important}
 .wudu-card .wudu-visual::before{border-radius:50% 50% 55% 55%/45% 45% 65% 65%;width:18px;height:25px}
 .nav a,.links a,.navlinks a{letter-spacing:.01em}
+
+/* Premium burger icon — drawn in CSS, no emoji/text dependency */
+.menu-btn,.mobile-menu-btn{position:relative!important;min-width:44px;min-height:44px;display:none;align-items:center;justify-content:center;border:1px solid rgba(18,61,52,.14)!important;background:#fff!important;border-radius:14px!important;box-shadow:0 8px 22px rgba(18,61,52,.08);font-size:0!important;color:transparent!important;cursor:pointer}
+.menu-btn::before,.mobile-menu-btn::before{content:"";position:absolute;width:20px;height:2px;background:#123d34;border-radius:999px;box-shadow:0 -6px 0 #123d34,0 6px 0 #123d34;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.menu-btn[aria-expanded="true"]::before,.mobile-menu-btn[aria-expanded="true"]::before{transform:rotate(45deg);box-shadow:none;background:#123d34}
+.menu-btn[aria-expanded="true"]::after,.mobile-menu-btn[aria-expanded="true"]::after{content:"";position:absolute;width:20px;height:2px;background:#123d34;border-radius:999px;transform:rotate(-45deg)}
+@media(max-width:980px){.menu-btn{display:inline-flex!important}}
+@media(max-width:900px){.mobile-menu-btn{display:inline-flex!important}}
+
 @media(max-width:640px){.hero-card .mosque{width:72px;height:72px}.topic-icon,.symbol,.wudu-visual{width:48px!important;height:48px!important}.topic-icon::before,.symbol::before,.wudu-visual::before{width:21px;height:21px}}
