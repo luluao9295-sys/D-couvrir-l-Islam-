@@ -1,0 +1,55 @@
+name: Fix prophet logo placement
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-prophet-logo-placement.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply logo layout and Ismail emblem
+        run: |
+          cat >> story-prayer-upgrade.css <<'CSS'
+
+/* Prophet emblem placement — approved mobile mockup */
+body[data-page="prophetes"] .card .symbol{
+  width:92px!important;
+  height:92px!important;
+  border-radius:24px!important;
+  margin:4px 0 22px!important;
+  background-color:#0f473c!important;
+  box-shadow:0 12px 28px rgba(18,61,52,.16),0 0 0 2px rgba(185,147,82,.28)!important;
+}
+body[data-page="prophetes"] .card:nth-child(8) .symbol{
+  background-image:url('assets/prophet-ismail.svg')!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+@media(max-width:640px){
+  body[data-page="prophetes"] .card{padding:22px!important}
+  body[data-page="prophetes"] .card .symbol{
+    width:78px!important;
+    height:78px!important;
+    border-radius:20px!important;
+    margin:2px 0 20px!important;
+  }
+}
+CSS
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('prophetes.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('story-prayer-upgrade.css?v=1','story-prayer-upgrade.css?v=2')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add story-prayer-upgrade.css prophetes.html
+          git diff --cached --quiet || git commit -m "Fix prophet emblem placement"
+          git push
