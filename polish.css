@@ -1,9 +1,17 @@
 /* Final visual polish — homepage + mobile consistency */
 :root{--polish-green:#0b3c32;--polish-gold:#d0a85e;--polish-cream:#fbf7ef}
 
-/* Compact sticky header */
+/* Compact sticky header — IMPORTANT: never target the dropdown nav itself */
 @media(max-width:640px){
-  .site-header .nav-row, header .nav{min-height:62px!important;height:62px!important;padding-top:0!important;padding-bottom:0!important;align-items:center!important;flex-direction:row!important}
+  .site-header .nav-row,
+  header > .container.nav{
+    min-height:62px!important;
+    height:62px!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    align-items:center!important;
+    flex-direction:row!important;
+  }
   .brand{font-size:20px!important;line-height:1.1!important}
   .menu-btn,.mobile-menu-btn{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;border-radius:13px!important}
 }
@@ -70,6 +78,7 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
     left:10px!important;
     right:10px!important;
     width:auto!important;
+    min-height:0!important;
     height:auto!important;
     max-height:calc(100dvh - 92px)!important;
     overflow-y:auto!important;
@@ -103,9 +112,10 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
 @media(max-width:640px){
   body[data-page="home"] #accueil.hero{
     min-height:560px!important;background-position:62% center!important;
-    padding:82px 0 54px!important;margin-top:18px!important;
+    padding:96px 0 58px!important;margin-top:22px!important;
     width:calc(100% - 18px)!important;border-radius:20px!important;
   }
+  body[data-page="home"] #accueil .container{padding-top:8px!important;padding-bottom:8px!important}
   body[data-page="home"] #accueil h1{font-size:clamp(46px,13vw,64px)!important;line-height:1.02!important;margin-bottom:22px!important}
   body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:none!important}
   body[data-page="home"] #rubriques{padding-top:50px!important}
