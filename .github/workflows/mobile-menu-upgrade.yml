@@ -1,0 +1,73 @@
+name: Universal mobile menu upgrade
+on:
+  push:
+    paths:
+      - '.github/workflows/mobile-menu-upgrade.yml'
+permissions:
+  contents: write
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add hamburger menu to interior pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          files = [
+              'prophetes.html','piliers.html','hadiths.html','hadiths-11-20.html',
+              'hadiths-21-30.html','hadiths-31-40.html','invocations.html','priere.html'
+          ]
+
+          script = '''<script id="mobileMenuScript">
+          (() => {
+            const btn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.mobile-collapsible');
+            if (!btn || !nav) return;
+            const close = () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.textContent='☰'; };
+            btn.addEventListener('click', () => {
+              const open = nav.classList.toggle('open');
+              btn.setAttribute('aria-expanded', String(open));
+              btn.textContent = open ? '✕' : '☰';
+            });
+            nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+            document.addEventListener('click', e => {
+              if (!nav.contains(e.target) && !btn.contains(e.target)) close();
+            });
+          })();
+          </script>'''
+
+          for name in files:
+              p = Path(name)
+              if not p.exists():
+                  continue
+              s = p.read_text(encoding='utf-8')
+              if 'mobile-menu-btn' not in s:
+                  s, n = re.subn(
+                      r'<nav class="links"([^>]*)>',
+                      '<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">☰</button><nav id="mobileNav" class="links mobile-collapsible"\\1>',
+                      s,
+                      count=1
+                  )
+                  if n == 0:
+                      s, n = re.subn(
+                          r'<nav class="navlinks"([^>]*)>',
+                          '<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">☰</button><nav id="mobileNav" class="navlinks mobile-collapsible"\\1>',
+                          s,
+                          count=1
+                      )
+              if 'id="mobileMenuScript"' not in s:
+                  s = s.replace('</body>', script + '\n</body>')
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add hamburger navigation to all interior pages"
+          git push
