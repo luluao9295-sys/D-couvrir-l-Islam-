@@ -1,0 +1,32 @@
+name: Apply clean homepage polish
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-polish-clean-home.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh polish stylesheet on all pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          for p in Path('.').glob('*.html'):
+              s = p.read_text(encoding='utf-8')
+              if 'polish.css' in s:
+                  s = re.sub(r'polish\.css(?:\?v=\d+)?', 'polish.css?v=3', s)
+              else:
+                  s = s.replace('</head>', '<link rel="stylesheet" href="polish.css?v=3">\n</head>')
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit cache refresh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add *.html
+          git diff --cached --quiet || git commit -m 'Refresh clean homepage polish'
+          git push
