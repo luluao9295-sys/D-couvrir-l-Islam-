@@ -1,0 +1,31 @@
+/* Premium generated category emblems — emerald & gold */
+body[data-page="piliers"]{--page-art:url('assets/premium-piliers.webp')!important}
+body[data-page="hadiths"]{--page-art:url('assets/premium-hadiths.webp')!important}
+body[data-page="invocations"]{--page-art:url('assets/premium-invocations.webp')!important}
+body[data-page="priere"]{--page-art:url('assets/premium-priere.webp')!important}
+
+.topic-card[href*="piliers"] .topic-icon{background-image:url('assets/premium-piliers.webp')!important}
+.topic-card[href="#noms"] .topic-icon{background-image:url('assets/premium-noms.webp')!important}
+.topic-card[href*="hadiths"] .topic-icon{background-image:url('assets/premium-hadiths.webp')!important}
+.topic-card[href*="invocations"] .topic-icon{background-image:url('assets/premium-invocations.webp')!important}
+.topic-card[href*="priere"] .topic-icon{background-image:url('assets/premium-priere.webp')!important}
+
+body[data-page="piliers"] .hero::after,
+body[data-page="hadiths"] .hero::after,
+body[data-page="invocations"] .hero::after,
+body[data-page="priere"] .hero::after{
+  aspect-ratio:1/1!important;
+  width:min(34vw,390px)!important;
+  background-size:contain!important;
+  filter:drop-shadow(0 26px 34px rgba(18,61,52,.22))!important;
+}
+
+@media(max-width:900px){
+  body[data-page="piliers"] .hero::after,
+  body[data-page="hadiths"] .hero::after,
+  body[data-page="invocations"] .hero::after,
+  body[data-page="priere"] .hero::after{
+    width:min(78vw,340px)!important;
+    margin:24px auto 0!important;
+  }
+}
