@@ -1,0 +1,34 @@
+name: Apply story and prayer upgrade
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-story-prayer-upgrade.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inject visual upgrade stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for name in ['prophetes.html','priere.html']:
+              p=Path(name)
+              s=p.read_text(encoding='utf-8')
+              link='<link rel="stylesheet" href="story-prayer-upgrade.css?v=1">'
+              if 'story-prayer-upgrade.css' not in s:
+                  s=s.replace('</head>',link+'\n</head>')
+              else:
+                  import re
+                  s=re.sub(r'<link rel="stylesheet" href="story-prayer-upgrade\.css(?:\?v=\d+)?">',link,s)
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prophetes.html priere.html
+          git diff --cached --quiet || git commit -m "Integrate prophet symbols and prayer illustrations"
+          git push
