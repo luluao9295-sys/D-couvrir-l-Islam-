@@ -1,0 +1,59 @@
+name: Integrate premium generated emblems
+on:
+  push:
+    paths:
+      - '.github/workflows/integrate-premium-generated-emblems.yml'
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wire premium emblems into assigned sections
+        shell: bash
+        run: |
+          cat >> visuals.css <<'CSS'
+
+/* Generated premium category emblems — emerald & gold */
+body[data-page="piliers"]{--page-art:url('assets/premium-piliers.webp')!important}
+body[data-page="hadiths"]{--page-art:url('assets/premium-hadiths.webp')!important}
+body[data-page="invocations"]{--page-art:url('assets/premium-invocations.webp')!important}
+body[data-page="priere"]{--page-art:url('assets/premium-priere.webp')!important}
+
+.topic-card[href*="piliers"] .topic-icon{background-image:url('assets/premium-piliers.webp')!important}
+.topic-card[href="#noms"] .topic-icon{background-image:url('assets/premium-noms.webp')!important}
+.topic-card[href*="hadiths"] .topic-icon{background-image:url('assets/premium-hadiths.webp')!important}
+.topic-card[href*="invocations"] .topic-icon{background-image:url('assets/premium-invocations.webp')!important}
+.topic-card[href*="priere"] .topic-icon{background-image:url('assets/premium-priere.webp')!important}
+
+body[data-page="piliers"] .hero::after,
+body[data-page="hadiths"] .hero::after,
+body[data-page="invocations"] .hero::after,
+body[data-page="priere"] .hero::after{
+  aspect-ratio:1/1!important;
+  width:min(34vw,390px)!important;
+  filter:drop-shadow(0 26px 34px rgba(18,61,52,.22))!important;
+}
+@media(max-width:900px){
+  body[data-page="piliers"] .hero::after,
+  body[data-page="hadiths"] .hero::after,
+  body[data-page="invocations"] .hero::after,
+  body[data-page="priere"] .hero::after{width:min(78vw,340px)!important;margin:24px auto 0!important}
+}
+CSS
+          python3 - <<'PY'
+          from pathlib import Path
+          for p in Path('.').glob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              s=s.replace('visuals.css?v=5','visuals.css?v=7')
+              s=s.replace('visuals.css?v=6','visuals.css?v=7')
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add visuals.css '*.html'
+          git diff --cached --quiet || git commit -m "Integrate generated premium emblems into category pages"
+          git push
