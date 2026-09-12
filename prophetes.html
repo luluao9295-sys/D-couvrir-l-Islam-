@@ -42,7 +42,7 @@ body[data-page="prophetes"] .symbol.prophet-symbol img{display:block;width:46px;
 <link rel="stylesheet" href="visuals.css?v=12">
 <link rel="stylesheet" href="polish.css?v=3">
 <link rel="stylesheet" href="uniform-ui.css?v=2">
-<link rel="stylesheet" href="story-prayer-upgrade.css?v=2">
+<link rel="stylesheet" href="story-prayer-upgrade.css?v=3">
 </head>
 <body data-page="prophetes">
 <header class="header"><div class="container nav"><a class="brand" href="index.html">Découvrir l’Islam</a><button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button><nav id="mobileNav" class="navlinks mobile-collapsible" aria-label="Navigation principale"><a href="index.html">Accueil</a><a class="active" aria-current="page" href="prophetes.html">Prophètes</a><a href="piliers.html">5 piliers</a><a href="noms.html">99 noms</a><a href="hadiths.html">Hadiths</a><a href="invocations.html">Invocations</a><a href="priere.html">Prière</a></nav></div></header>
@@ -159,7 +159,7 @@ body[data-page="prophetes"] .symbol.prophet-symbol img{display:block;width:46px;
     const name = card.querySelector('h3').textContent.trim();
     const symbol = card.querySelector('.symbol');
     symbol.classList.add('prophet-symbol');
-    symbol.innerHTML = `<img src="assets/prophets/${iconFiles[index]}.svg" alt="" width="48" height="48">`;
+    symbol.innerHTML = `<img src="assets/prophets/${iconFiles[index]}.svg" alt="" width="96" height="104">`;
     symbol.setAttribute('aria-hidden', 'true');
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
