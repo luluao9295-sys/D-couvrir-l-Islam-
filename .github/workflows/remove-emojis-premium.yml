@@ -1,0 +1,82 @@
+name: Remove emojis and refine visual system
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/remove-emojis-premium.yml'
+permissions:
+  contents: write
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove emojis and improve visual classes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          files = [
+            'index.html','prophetes.html','piliers.html','hadiths.html',
+            'hadiths-11-20.html','hadiths-21-30.html','hadiths-31-40.html',
+            'invocations.html','priere.html'
+          ]
+          # broad emoji/symbol ranges, preserving Arabic and ordinary punctuation
+          emoji_re = re.compile('[\U0001F300-\U0001FAFF\U00002700-\U000027BF\U00002600-\U000026FF\U0000FE0F]')
+          for f in files:
+            p = Path(f)
+            if not p.exists():
+              continue
+            s = p.read_text(encoding='utf-8')
+            s = emoji_re.sub('', s)
+            # tidy doubled whitespace around removed emoji in visible text
+            s = re.sub(r'>\s{2,}', '>', s)
+            s = re.sub(r'\s{2,}<', '<', s)
+            p.write_text(s, encoding='utf-8')
+          PY
+      - name: Add premium line-art visual treatment
+        run: |
+          cat >> visuals.css <<'CSS'
+
+          /* Premium editorial system — no emoji dependency */
+          .topic-icon,.symbol,.wudu-visual{font-size:0!important;position:relative;background:linear-gradient(145deg,#fbf8f1,#eef3ef)!important;border:1px solid rgba(18,61,52,.13)!important;box-shadow:0 10px 28px rgba(18,61,52,.08)!important}
+          .topic-icon::before,.symbol::before,.wudu-visual::before{content:"";width:24px;height:24px;border:1.6px solid #123d34;border-radius:6px;opacity:.9;display:block;box-sizing:border-box}
+          .topic-icon::after,.symbol::after,.wudu-visual::after{content:"";position:absolute;width:9px;height:9px;border:1.5px solid #b99352;border-radius:50%;right:9px;bottom:9px;background:#fbf7ef}
+          .topic-card[href*="prophetes"] .topic-icon::before,.topic-card[href*="hadiths"] .topic-icon::before{border-radius:3px;box-shadow:inset -6px 0 0 rgba(18,61,52,.07)}
+          .topic-card[href*="piliers"] .topic-icon::before{border-radius:2px;transform:rotate(45deg)}
+          .topic-card[href*="invocations"] .topic-icon::before{border-radius:50% 50% 44% 44%;height:27px;width:18px}
+          .topic-card[href*="priere"] .topic-icon::before{width:27px;height:18px;border-radius:14px 14px 4px 4px;border-bottom-width:2px}
+          .hero-card .mosque{font-size:0!important;width:86px;height:86px;border-radius:24px;background:linear-gradient(145deg,#f7f1e5,#e7efe9);border:1px solid rgba(18,61,52,.12);position:relative;margin-bottom:20px;box-shadow:0 12px 28px rgba(18,61,52,.08)}
+          .hero-card .mosque::before{content:"";position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:38px;height:35px;border:2px solid #123d34;border-radius:20px 20px 4px 4px}
+          .hero-card .mosque::after{content:"";position:absolute;left:50%;top:15px;transform:translateX(-50%);width:10px;height:10px;border:2px solid #b99352;border-radius:50%}
+          .eyebrow,.tag{letter-spacing:.09em!important;text-transform:uppercase;font-size:11px!important}
+          .card,.pillar,.step,.path-card,.name-card,.wudu-card{border-color:rgba(18,61,52,.08)!important;box-shadow:0 16px 46px rgba(18,61,52,.08)!important;background-color:rgba(255,255,255,.94)!important}
+          .card h3,.pillar h3,.path-card h3,.wudu-card h3{letter-spacing:-.025em}
+          .section h2::after{height:2px!important;width:42px!important;background:#b99352!important}
+          .quick-item{position:relative;padding-left:36px!important}
+          .quick-item::before{content:"";position:absolute;left:14px;width:8px;height:8px;border-radius:50%;border:1.5px solid #b99352;background:transparent}
+          .count{letter-spacing:.05em;font-size:12px!important;padding:7px 12px!important;box-shadow:none!important}
+          .wudu-card .wudu-visual::before{border-radius:50% 50% 55% 55%/45% 45% 65% 65%;width:18px;height:25px}
+          .nav a,.links a,.navlinks a{letter-spacing:.01em}
+          @media(max-width:640px){.hero-card .mosque{width:72px;height:72px}.topic-icon,.symbol,.wudu-visual{width:48px!important;height:48px!important}.topic-icon::before,.symbol::before,.wudu-visual::before{width:21px;height:21px}}
+          CSS
+      - name: Ensure visuals stylesheet is linked everywhere
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = ['index.html','prophetes.html','piliers.html','hadiths.html','hadiths-11-20.html','hadiths-21-30.html','hadiths-31-40.html','invocations.html','priere.html']
+          for f in files:
+            p=Path(f)
+            if not p.exists(): continue
+            s=p.read_text(encoding='utf-8')
+            if 'visuals.css' not in s:
+              s=s.replace('</head>','<link rel="stylesheet" href="visuals.css">\n</head>')
+            p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html prophetes.html piliers.html hadiths*.html invocations.html priere.html visuals.css
+          git commit -m 'Remove emojis and apply premium editorial visuals' || exit 0
+          git push
