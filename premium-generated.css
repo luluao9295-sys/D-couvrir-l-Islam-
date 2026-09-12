@@ -158,3 +158,41 @@ body[data-page="home"] #noms::before{
   body[data-page="priere"] .hero .container,
   body[data-page="prophetes"] .hero .container{padding-top:18px;padding-bottom:18px}
 }
+
+/* Homepage rubric cards — show the same premium banners directly on the first page */
+body[data-page="home"] #rubriques .topic-card{
+  min-height:330px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  padding:24px!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border-color:rgba(185,147,82,.38)!important;
+  box-shadow:0 22px 54px rgba(18,61,52,.16)!important;
+}
+body[data-page="home"] #rubriques .topic-card::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  height:auto!important;
+  background:linear-gradient(180deg,rgba(5,31,26,.06) 20%,rgba(5,31,26,.72) 70%,rgba(5,31,26,.94) 100%)!important;
+  z-index:0!important;
+}
+body[data-page="home"] #rubriques .topic-card>*{position:relative;z-index:1}
+body[data-page="home"] #rubriques .topic-card .topic-icon{display:none!important}
+body[data-page="home"] #rubriques .topic-card .topic-label{color:#f1cf7a!important;text-shadow:0 2px 12px rgba(0,0,0,.42)}
+body[data-page="home"] #rubriques .topic-card h3{color:#fff8e8!important;text-shadow:0 3px 18px rgba(0,0,0,.5);font-size:clamp(27px,3vw,38px)!important}
+body[data-page="home"] #rubriques .topic-card p{color:#f6ecda!important;text-shadow:0 2px 14px rgba(0,0,0,.46);font-size:16px!important}
+body[data-page="home"] #rubriques .topic-card::after{color:#f0cf7a!important;z-index:2!important}
+body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
+body[data-page="home"] #rubriques .topic-card[href="#noms"]{background-image:url('assets/banner-99noms.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="invocations"]{background-image:url('assets/banner-invocations.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="priere"]{background-image:url('assets/banner-priere.png')!important}
+@media(max-width:640px){
+  body[data-page="home"] #rubriques .topic-card{min-height:285px!important;border-radius:24px!important;padding:20px!important}
+  body[data-page="home"] #rubriques .topic-card h3{font-size:30px!important}
+}
