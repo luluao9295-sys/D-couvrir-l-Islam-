@@ -29,72 +29,103 @@ body[data-page="priere"] .five .prayer:nth-child(5)::before{background-image:url
 body[data-page="priere"] .five .prayer .tag{top:16px!important;left:16px!important;z-index:2!important;background:rgba(255,255,255,.9)!important;backdrop-filter:blur(8px)!important;box-shadow:0 5px 18px rgba(0,0,0,.10)!important}
 body[data-page="priere"] .five .prayer strong,body[data-page="priere"] .five .prayer .time,body[data-page="priere"] .five .prayer > *{position:relative;z-index:2}
 
-/* 25 emblèmes individuels — DA premium vert émeraude / doré. */
+/* 25 emblèmes premium provenant des 5 planches SVG uploadées dans assets. */
 body[data-page="prophetes"] .card .symbol.prophet-symbol{
   position:relative!important;
-  width:122px!important;
-  height:122px!important;
+  width:146px!important;
+  height:158px!important;
   margin:0 0 20px!important;
-  padding:8px!important;
-  border-radius:28px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:30px!important;
   overflow:hidden!important;
-  background:
-    radial-gradient(circle at 34% 24%,rgba(42,126,104,.72),transparent 38%),
-    linear-gradient(145deg,#0c5b4b 0%,#073f35 54%,#032d27 100%)!important;
-  border:2px solid #d8ad50!important;
-  box-shadow:
-    0 14px 34px rgba(18,61,52,.22),
-    inset 0 0 0 2px rgba(255,236,174,.16),
-    inset 0 -16px 30px rgba(0,0,0,.12)!important;
+  background-repeat:no-repeat!important;
+  background-color:#fbf7ef!important;
+  box-shadow:0 14px 32px rgba(18,61,52,.18)!important;
+  transition:transform .22s ease,box-shadow .22s ease!important;
 }
-body[data-page="prophetes"] .card .symbol.prophet-symbol::before{
-  content:"";
-  position:absolute;
-  z-index:0;
-  left:15px;
-  right:15px;
-  top:12px;
-  height:70px;
-  border:2px solid rgba(244,218,145,.88);
-  border-bottom:0;
-  border-radius:52% 52% 0 0 / 43% 43% 0 0;
-  pointer-events:none;
-  opacity:.9;
-}
-body[data-page="prophetes"] .card .symbol.prophet-symbol::after{
-  content:"";
-  position:absolute;
-  left:10px;
-  right:10px;
-  bottom:10px;
-  height:30px;
-  border-radius:50% 50% 18px 18px;
-  background:linear-gradient(180deg,rgba(227,191,106,.05),rgba(208,159,70,.30));
-  pointer-events:none;
-  z-index:0;
-}
-body[data-page="prophetes"] .card .symbol.prophet-symbol img{
-  position:relative!important;
-  z-index:2!important;
-  display:block!important;
-  width:106px!important;
-  height:106px!important;
-  margin:auto!important;
-  object-fit:contain!important;
-  transform:scale(1.03)!important;
-  filter:drop-shadow(0 7px 10px rgba(0,0,0,.30)) brightness(1.05) saturate(1.08)!important;
-}
+body[data-page="prophetes"] .card .symbol.prophet-symbol::before,
+body[data-page="prophetes"] .card .symbol.prophet-symbol::after{display:none!important}
+body[data-page="prophetes"] .card .symbol.prophet-symbol img{display:none!important}
 body[data-page="prophetes"] .card:hover .symbol.prophet-symbol,
 body[data-page="prophetes"] .card:focus-visible .symbol.prophet-symbol{
   transform:translateY(-3px) scale(1.02)!important;
-  box-shadow:0 20px 42px rgba(18,61,52,.28),0 0 0 1px rgba(232,194,108,.25),inset 0 0 0 2px rgba(255,236,174,.18)!important;
+  box-shadow:0 20px 42px rgba(18,61,52,.25)!important;
 }
-body[data-page="prophetes"] .card .symbol.prophet-symbol{transition:transform .22s ease,box-shadow .22s ease!important}
+
+/* Taille de planche pour les 3 logos du haut : recadrage du badge uniquement. */
+body[data-page="prophetes"] .card:nth-child(1) .symbol,
+body[data-page="prophetes"] .card:nth-child(2) .symbol,
+body[data-page="prophetes"] .card:nth-child(3) .symbol,
+body[data-page="prophetes"] .card:nth-child(6) .symbol,
+body[data-page="prophetes"] .card:nth-child(7) .symbol,
+body[data-page="prophetes"] .card:nth-child(8) .symbol,
+body[data-page="prophetes"] .card:nth-child(11) .symbol,
+body[data-page="prophetes"] .card:nth-child(12) .symbol,
+body[data-page="prophetes"] .card:nth-child(13) .symbol,
+body[data-page="prophetes"] .card:nth-child(16) .symbol,
+body[data-page="prophetes"] .card:nth-child(17) .symbol,
+body[data-page="prophetes"] .card:nth-child(18) .symbol,
+body[data-page="prophetes"] .card:nth-child(21) .symbol,
+body[data-page="prophetes"] .card:nth-child(22) .symbol,
+body[data-page="prophetes"] .card:nth-child(23) .symbol{
+  background-size:520px 650px!important;
+}
+/* Taille de planche pour les 2 logos du bas. */
+body[data-page="prophetes"] .card:nth-child(4) .symbol,
+body[data-page="prophetes"] .card:nth-child(5) .symbol,
+body[data-page="prophetes"] .card:nth-child(9) .symbol,
+body[data-page="prophetes"] .card:nth-child(10) .symbol,
+body[data-page="prophetes"] .card:nth-child(14) .symbol,
+body[data-page="prophetes"] .card:nth-child(15) .symbol,
+body[data-page="prophetes"] .card:nth-child(19) .symbol,
+body[data-page="prophetes"] .card:nth-child(20) .symbol,
+body[data-page="prophetes"] .card:nth-child(24) .symbol,
+body[data-page="prophetes"] .card:nth-child(25) .symbol{
+  background-size:488px 610px!important;
+}
+
+/* Planches 01–05 */
+body[data-page="prophetes"] .card:nth-child(1) .symbol,
+body[data-page="prophetes"] .card:nth-child(2) .symbol,
+body[data-page="prophetes"] .card:nth-child(3) .symbol,
+body[data-page="prophetes"] .card:nth-child(4) .symbol,
+body[data-page="prophetes"] .card:nth-child(5) .symbol{background-image:url('assets/sheet_01_05_adam_to_salih.svg')!important}
+/* Planches 06–10 */
+body[data-page="prophetes"] .card:nth-child(6) .symbol,
+body[data-page="prophetes"] .card:nth-child(7) .symbol,
+body[data-page="prophetes"] .card:nth-child(8) .symbol,
+body[data-page="prophetes"] .card:nth-child(9) .symbol,
+body[data-page="prophetes"] .card:nth-child(10) .symbol{background-image:url('assets/sheet_06_10_ibrahim_to_yaqub.svg')!important}
+/* Planches 11–15 */
+body[data-page="prophetes"] .card:nth-child(11) .symbol,
+body[data-page="prophetes"] .card:nth-child(12) .symbol,
+body[data-page="prophetes"] .card:nth-child(13) .symbol,
+body[data-page="prophetes"] .card:nth-child(14) .symbol,
+body[data-page="prophetes"] .card:nth-child(15) .symbol{background-image:url('assets/sheet_11_15_yusuf_to_harun.svg')!important}
+/* Planches 16–20 */
+body[data-page="prophetes"] .card:nth-child(16) .symbol,
+body[data-page="prophetes"] .card:nth-child(17) .symbol,
+body[data-page="prophetes"] .card:nth-child(18) .symbol,
+body[data-page="prophetes"] .card:nth-child(19) .symbol,
+body[data-page="prophetes"] .card:nth-child(20) .symbol{background-image:url('assets/sheet_16_20_dhulkifl_to_alyasa.svg')!important}
+/* Planches 21–25 */
+body[data-page="prophetes"] .card:nth-child(21) .symbol,
+body[data-page="prophetes"] .card:nth-child(22) .symbol,
+body[data-page="prophetes"] .card:nth-child(23) .symbol,
+body[data-page="prophetes"] .card:nth-child(24) .symbol,
+body[data-page="prophetes"] .card:nth-child(25) .symbol{background-image:url('assets/sheet_21_25_yunus_to_muhammad.svg')!important}
+
+/* Positions des 5 emblèmes dans chaque planche. */
+body[data-page="prophetes"] .card:nth-child(5n+1) .symbol{background-position:-18px -74px!important}
+body[data-page="prophetes"] .card:nth-child(5n+2) .symbol{background-position:-187px -74px!important}
+body[data-page="prophetes"] .card:nth-child(5n+3) .symbol{background-position:-356px -74px!important}
+body[data-page="prophetes"] .card:nth-child(5n+4) .symbol{background-position:-82px -304px!important}
+body[data-page="prophetes"] .card:nth-child(5n+5) .symbol{background-position:-260px -304px!important}
 
 @media(max-width:640px){
-  body[data-page="prophetes"] .card .symbol.prophet-symbol{width:108px!important;height:108px!important;border-radius:25px!important;padding:7px!important}
-  body[data-page="prophetes"] .card .symbol.prophet-symbol img{width:94px!important;height:94px!important}
-  body[data-page="prophetes"] .card .symbol.prophet-symbol::before{left:13px;right:13px;top:11px;height:62px}
+  body[data-page="prophetes"] .card .symbol.prophet-symbol{width:128px!important;height:138px!important;border-radius:26px!important}
+  body[data-page="prophetes"] .card .symbol.prophet-symbol{transform-origin:left top}
   body[data-page="priere"] .hero-quote{padding:20px!important}
   body[data-page="priere"] .five{grid-template-columns:1fr 1fr!important;gap:12px!important}
   body[data-page="priere"] .five .prayer{min-height:270px!important;padding:138px 14px 16px!important}
