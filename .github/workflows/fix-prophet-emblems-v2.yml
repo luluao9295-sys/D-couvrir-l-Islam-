@@ -1,0 +1,102 @@
+name: Fix prophet emblems v2
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-prophet-emblems-v2.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix prophet emblem mapping and crop
+        run: |
+          cat >> story-prayer-upgrade.css <<'CSS'
+
+/* Correct prophet emblem mapping + crop */
+body[data-page="prophetes"] .card .symbol{
+  width:88px!important;
+  height:88px!important;
+  border-radius:22px!important;
+  margin:2px 0 20px!important;
+  background-image:none!important;
+  background-color:#123d34!important;
+  background-repeat:no-repeat!important;
+  color:transparent!important;
+  box-shadow:0 12px 28px rgba(18,61,52,.15),0 0 0 2px rgba(185,147,82,.25)!important;
+}
+/* existing uploaded sheet: only use a symbol where it actually matches the prophet */
+body[data-page="prophetes"] .card:nth-child(1) .symbol,
+body[data-page="prophetes"] .card:nth-child(3) .symbol,
+body[data-page="prophetes"] .card:nth-child(4) .symbol,
+body[data-page="prophetes"] .card:nth-child(5) .symbol,
+body[data-page="prophetes"] .card:nth-child(6) .symbol,
+body[data-page="prophetes"] .card:nth-child(11) .symbol,
+body[data-page="prophetes"] .card:nth-child(12) .symbol,
+body[data-page="prophetes"] .card:nth-child(14) .symbol,
+body[data-page="prophetes"] .card:nth-child(17) .symbol,
+body[data-page="prophetes"] .card:nth-child(18) .symbol,
+body[data-page="prophetes"] .card:nth-child(21) .symbol,
+body[data-page="prophetes"] .card:nth-child(24) .symbol{
+  background-image:url('assets/0943EBCA-3A42-4833-903E-F076C2EBA744.png')!important;
+  background-size:400% 400%!important;
+}
+body[data-page="prophetes"] .card:nth-child(1) .symbol{background-position:0% 0%!important}
+body[data-page="prophetes"] .card:nth-child(3) .symbol{background-position:33.333% 0%!important}
+body[data-page="prophetes"] .card:nth-child(4) .symbol{background-position:66.666% 0%!important}
+body[data-page="prophetes"] .card:nth-child(5) .symbol{background-position:100% 0%!important}
+body[data-page="prophetes"] .card:nth-child(6) .symbol{background-position:0% 50%!important}
+body[data-page="prophetes"] .card:nth-child(11) .symbol{background-position:33.333% 50%!important}
+body[data-page="prophetes"] .card:nth-child(12) .symbol{background-position:66.666% 50%!important}
+body[data-page="prophetes"] .card:nth-child(14) .symbol{background-position:100% 50%!important}
+body[data-page="prophetes"] .card:nth-child(17) .symbol{background-position:0% 100%!important}
+body[data-page="prophetes"] .card:nth-child(18) .symbol{background-position:33.333% 100%!important}
+body[data-page="prophetes"] .card:nth-child(21) .symbol{background-position:66.666% 100%!important}
+body[data-page="prophetes"] .card:nth-child(24) .symbol{background-position:100% 100%!important}
+/* Ismail gets a dedicated Kaaba/Mecca emblem instead of the wrong Musa tile */
+body[data-page="prophetes"] .card:nth-child(8) .symbol{
+  background-image:url('assets/prophet-ismail.svg')!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+/* unmatched prophets: elegant neutral emblem, never a wrong named tile */
+body[data-page="prophetes"] .card .symbol:empty{position:relative}
+body[data-page="prophetes"] .card .symbol:empty::after{
+  content:"✦";
+  color:#d6b66d;
+  font-size:28px;
+  line-height:1;
+}
+body[data-page="prophetes"] .card:nth-child(1) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(3) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(4) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(5) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(6) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(8) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(11) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(12) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(14) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(17) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(18) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(21) .symbol::after,
+body[data-page="prophetes"] .card:nth-child(24) .symbol::after{content:none!important}
+@media(max-width:640px){
+  body[data-page="prophetes"] .card .symbol{width:80px!important;height:80px!important;border-radius:20px!important}
+}
+CSS
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('prophetes.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('story-prayer-upgrade.css?v=1','story-prayer-upgrade.css?v=3')
+          s=s.replace('story-prayer-upgrade.css?v=2','story-prayer-upgrade.css?v=3')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add story-prayer-upgrade.css prophetes.html
+          git diff --cached --quiet || git commit -m "Correct prophet emblems and crop"
+          git push
