@@ -1,0 +1,10 @@
+{
+  "name": "Découvrir l’Islam",
+  "short_name": "Découvrir l’Islam",
+  "description": "Apprendre simplement les bases de l’Islam.",
+  "start_url": "/D-couvrir-l-Islam-/",
+  "display": "standalone",
+  "background_color": "#fbf7ef",
+  "theme_color": "#123d34",
+  "icons": [{"src":"favicon.svg","sizes":"any","type":"image/svg+xml"}]
+}
