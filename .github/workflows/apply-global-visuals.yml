@@ -1,0 +1,30 @@
+name: Apply global visuals
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-global-visuals.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link visual system on homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          link='<link rel="stylesheet" href="visuals.css">\n'
+          if 'href="visuals.css"' not in s:
+              s=s.replace('<style>',link+'<style>',1)
+              p.write_text(s)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Apply premium visuals to homepage"
+          git push
