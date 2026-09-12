@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inject uniform stylesheet
+      - name: Inject uniform stylesheet and fix navigation
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -19,7 +19,8 @@ jobs:
               if p.name == '404.html':
                   continue
               s = p.read_text(encoding='utf-8')
-              link = '<link rel="stylesheet" href="uniform-ui.css?v=1">'
+              s = s.replace('href="index.html#noms"', 'href="noms.html"')
+              link = '<link rel="stylesheet" href="uniform-ui.css?v=2">'
               if 'uniform-ui.css' in s:
                   s = re.sub(r'<link rel="stylesheet" href="uniform-ui\.css(?:\?v=\d+)?">', link, s)
               else:
@@ -31,5 +32,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add '*.html'
-          git diff --cached --quiet || git commit -m "Apply unified mobile menus and banners"
+          git diff --cached --quiet || git commit -m "Refresh unified menus banners and 99 names links"
           git push
