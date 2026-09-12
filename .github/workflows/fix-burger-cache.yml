@@ -1,0 +1,39 @@
+name: Fix mobile burger cache
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-burger-cache.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make burger robust and bust CSS cache
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for p in Path('.').glob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              s=s.replace('href="visuals.css"','href="visuals.css?v=4"')
+              s=s.replace('aria-label="Ouvrir le menu"></button>','aria-label="Ouvrir le menu" aria-expanded="false"><span class="burger-lines" aria-hidden="true"></span></button>')
+              s=s.replace('aria-controls="mobileNav">☰</button>','aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>')
+              s=s.replace('aria-controls="mobileNav"></button>','aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>')
+              p.write_text(s,encoding='utf-8')
+          PY
+          cat >> visuals.css <<'CSS'
+
+/* Robust burger fallback for iPhone/Safari */
+.menu-btn .burger-lines,.mobile-menu-btn .burger-lines{display:block!important;position:relative;width:20px;height:2px;background:#123d34;border-radius:999px;box-shadow:0 -6px 0 #123d34,0 6px 0 #123d34}
+.menu-btn .burger-lines::before,.menu-btn .burger-lines::after,.mobile-menu-btn .burger-lines::before,.mobile-menu-btn .burger-lines::after{content:"";position:absolute;inset:0;background:#123d34;border-radius:999px;opacity:0}
+@media(max-width:980px){button.menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;z-index:1000!important}}
+@media(max-width:900px){button.mobile-menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;z-index:1000!important}}
+CSS
+      - name: Commit hotfix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' visuals.css
+          git diff --cached --quiet || git commit -m "Fix mobile burger visibility and Safari cache"
+          git push
