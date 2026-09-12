@@ -27,6 +27,16 @@ body[data-page="prophetes"] .card:nth-child(12n+10) .symbol{background-position:
 body[data-page="prophetes"] .card:nth-child(12n+11) .symbol{background-position:66.666% 100%!important}
 body[data-page="prophetes"] .card:nth-child(12n+12) .symbol{background-position:100% 100%!important}
 
+/* Mention de respect affichée après chaque nom de prophète, y compris dans la fiche ouverte. */
+body[data-page="prophetes"] .card h3::after,
+body[data-page="prophetes"] .prophet-dialog-title::after{
+  content:" — paix sur lui";
+  font-size:.58em;
+  font-weight:600;
+  color:var(--gold);
+  white-space:normal;
+}
+
 /* PRAYER HERO: remove mosque image completely; keep only the Qur'an reminder. */
 body[data-page="priere"] .prayer-visual-hero{grid-template-columns:1fr!important}
 body[data-page="priere"] .hero-art{min-height:0!important;margin-top:20px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}
