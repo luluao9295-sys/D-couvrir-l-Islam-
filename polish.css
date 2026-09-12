@@ -108,44 +108,27 @@ body[data-page="priere"] #ablutions .container::before{display:none!important;co
   body[data-page="noms"] .site-header .nav a:hover{background:#f1eadf!important}
 }
 
-/* 99 names page — restore the original long banner */
-body[data-page="noms"] #noms .container::before{
+/* 99 names page — same full-width banner treatment as the other sections */
+body[data-page="noms"] main::before{
   content:""!important;
   display:block!important;
   width:100%!important;
-  aspect-ratio:16/5!important;
-  margin:0 0 34px 0!important;
-  border-radius:28px!important;
-  background-image:url('assets/banner-99noms.png')!important;
+  min-height:clamp(360px,48vw,560px)!important;
+  background-image:linear-gradient(90deg,rgba(6,35,29,.20) 0%,rgba(6,35,29,.08) 45%,rgba(6,35,29,.02) 100%),url('assets/banner-99noms.png')!important;
   background-size:cover!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
-  border:1px solid rgba(208,168,94,.55)!important;
-  box-shadow:0 24px 60px rgba(18,61,52,.18)!important;
 }
-body[data-page="noms"] #noms .section-head > div:first-child::before{
-  content:""!important;
-  display:block!important;
-  width:78px!important;
-  height:78px!important;
-  margin:0 0 18px 0!important;
-  border-radius:50%!important;
-  background:url('assets/premium-noms.svg') center/cover no-repeat!important;
-  box-shadow:0 14px 34px rgba(18,61,52,.16)!important;
+body[data-page="noms"] #noms .container::before{display:none!important;content:none!important}
+body[data-page="noms"] #noms .section-head > div:first-child::before{display:none!important;content:none!important}
+body[data-page="noms"] #noms{padding-top:54px!important}
+
+@media(max-width:900px){
+  body[data-page="noms"] main::before{min-height:430px!important;background-position:center!important}
 }
 @media(max-width:640px){
-  body[data-page="noms"] #noms{padding-top:22px!important}
-  body[data-page="noms"] #noms .container::before{
-    aspect-ratio:16/8!important;
-    margin-bottom:24px!important;
-    border-radius:20px!important;
-    background-image:url('assets/banner-99noms.png')!important;
-    background-size:cover!important;
-    background-position:center!important;
-  }
-  body[data-page="noms"] #noms .section-head > div:first-child::before{
-    width:66px!important;height:66px!important;margin-bottom:14px!important;
-  }
+  body[data-page="noms"] main::before{min-height:390px!important;background-position:62% center!important}
+  body[data-page="noms"] #noms{padding-top:44px!important}
 }
 
 /* Mobile spacing */
