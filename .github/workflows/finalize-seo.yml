@@ -1,0 +1,60 @@
+name: Finalize SEO metadata
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-seo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add metadata to public pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          base = "https://luluao9295-sys.github.io/D-couvrir-l-Islam-/"
+          pages = {
+              "index.html": ("Découvrir l’Islam — Apprendre simplement", "Un site pédagogique, clair et chaleureux pour découvrir les bases de l’Islam : prophètes, cinq piliers, 99 noms, hadiths, invocations et prière."),
+              "prophetes.html": ("Histoires des prophètes — Découvrir l’Islam", "Découvrir les 25 prophètes cités dans le Coran grâce à des fiches simples, sourcées et adaptées aux débutants."),
+              "piliers.html": ("Les 5 piliers de l’Islam — Découvrir l’Islam", "Comprendre simplement la chahada, la prière, la zakat, le Ramadan et le Hajj avec des explications et des sources."),
+              "hadiths.html": ("Hadiths authentiques — Découvrir l’Islam", "40 hadiths expliqués simplement avec références, authenticité et enseignements pratiques."),
+              "hadiths-11-20.html": ("Hadiths 11 à 20 — Découvrir l’Islam", "Deuxième série de hadiths authentiques expliqués simplement avec références précises."),
+              "hadiths-21-30.html": ("Hadiths 21 à 30 — Découvrir l’Islam", "Troisième série de hadiths expliqués simplement avec sources classiques et authenticité indiquée."),
+              "hadiths-31-40.html": ("Hadiths 31 à 40 — Découvrir l’Islam", "Dernière série du parcours de 40 hadiths, avec sens pédagogique, source et degré d’authenticité."),
+              "invocations.html": ("Invocations authentiques — Découvrir l’Islam", "30 invocations authentiques du quotidien avec arabe, translittération, traduction, moment et source."),
+              "priere.html": ("Apprendre la prière — Découvrir l’Islam", "Guide débutant pour apprendre les ablutions, les horaires, les rak‘at, les mouvements, les récitations et les adhkar après la prière.")
+          }
+
+          for filename, (title, desc) in pages.items():
+              p = Path(filename)
+              if not p.exists():
+                  continue
+              html = p.read_text(encoding="utf-8")
+              if "<!-- SEO:site -->" in html:
+                  continue
+              html = re.sub(r'\s*<meta\s+name=["\']description["\'][^>]*>', '', html, flags=re.I)
+              canonical = base if filename == "index.html" else base + filename
+              block = f'''\n<!-- SEO:site -->\n<meta name="description" content="{desc}">\n<link rel="canonical" href="{canonical}">\n<link rel="icon" href="favicon.ico" sizes="any">\n<link rel="icon" href="favicon.svg" type="image/svg+xml">\n<link rel="manifest" href="site.webmanifest">\n<meta property="og:type" content="website">\n<meta property="og:locale" content="fr_FR">\n<meta property="og:site_name" content="Découvrir l’Islam">\n<meta property="og:title" content="{title}">\n<meta property="og:description" content="{desc}">\n<meta property="og:url" content="{canonical}">\n<meta property="og:image" content="{base}og-share.svg">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="{title}">\n<meta name="twitter:description" content="{desc}">\n<meta name="twitter:image" content="{base}og-share.svg">\n'''
+              html = re.sub(r'(</title>)', r'\1' + block, html, count=1, flags=re.I)
+              p.write_text(html, encoding="utf-8")
+          PY
+      - name: Commit SEO metadata
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          git commit -m "Finalize SEO and social metadata"
+          git push
