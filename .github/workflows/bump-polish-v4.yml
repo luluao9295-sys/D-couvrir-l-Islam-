@@ -1,0 +1,24 @@
+name: Refresh homepage polish cache
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-polish-v4.yml'
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump polish stylesheet version
+        run: |
+          sed -i 's/polish.css?v=3/polish.css?v=4/g' index.html
+      - name: Commit cache bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh homepage polish cache"
+            git push
+          fi
