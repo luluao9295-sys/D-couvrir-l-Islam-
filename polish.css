@@ -48,17 +48,17 @@ body[data-page="home"] #rubriques .topic-card::before{
 }
 body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="noms"]{display:flex!important;background-image:url('assets/banner-99noms.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="invocations"]{background-image:url('assets/banner-invocations.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="priere"]{background-image:url('assets/banner-priere.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="noms"]{display:none!important}
 body[data-page="home"] #rubriques .topic-card .topic-icon{display:none!important;width:0!important;height:0!important;margin:0!important;padding:0!important;border:0!important}
 body[data-page="home"] #rubriques .topic-card h3{color:#fff7df!important;font-size:30px!important;text-shadow:0 3px 20px rgba(0,0,0,.45)!important}
 body[data-page="home"] #rubriques .topic-card p{color:#f1e8d5!important;font-size:16px!important;text-shadow:0 2px 14px rgba(0,0,0,.4)!important}
 body[data-page="home"] #rubriques .topic-card .topic-label{color:#f0ce82!important;background:rgba(7,43,35,.6)!important;border:1px solid rgba(240,206,130,.32)!important;padding:7px 10px!important;border-radius:999px!important;width:max-content!important;backdrop-filter:blur(7px)}
 body[data-page="home"] #rubriques .topic-card::after{color:#f2d084!important;font-size:28px!important;right:24px!important;bottom:22px!important}
 
-/* Keep the homepage simple */
+/* Keep the homepage simple: no full 99 names list */
 body[data-page="home"] #parcours .path-card .step{display:none!important}
 body[data-page="home"] #noms{display:none!important}
 
