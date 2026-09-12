@@ -1,0 +1,44 @@
+name: Fix mobile burger robustly
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-burger-cache2.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch markup and cache-bust stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files=['index.html','prophetes.html','piliers.html','hadiths.html','hadiths-11-20.html','hadiths-21-30.html','hadiths-31-40.html','invocations.html','priere.html']
+          for f in files:
+            p=Path(f)
+            if not p.exists():
+              continue
+            s=p.read_text(encoding='utf-8')
+            s=s.replace('href="visuals.css"','href="visuals.css?v=5"')
+            s=s.replace('aria-label="Ouvrir le menu"></button>','aria-label="Ouvrir le menu" aria-expanded="false"><span class="burger-lines" aria-hidden="true"></span></button>')
+            s=s.replace('aria-controls="mobileNav">☰</button>','aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>')
+            s=s.replace('aria-controls="mobileNav"></button>','aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>')
+            p.write_text(s,encoding='utf-8')
+          PY
+      - name: Add Safari-safe burger CSS
+        run: |
+          cat >> visuals.css <<'CSS'
+          /* Safari-safe burger fallback */
+          .menu-btn .burger-lines,.mobile-menu-btn .burger-lines{display:block!important;position:relative;width:20px;height:2px;background:#123d34;border-radius:999px;box-shadow:0 -6px 0 #123d34,0 6px 0 #123d34}
+          @media(max-width:980px){button.menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;align-items:center!important;justify-content:center!important;z-index:1000!important}}
+          @media(max-width:900px){button.mobile-menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;align-items:center!important;justify-content:center!important;z-index:1000!important}}
+          CSS
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html prophetes.html piliers.html hadiths*.html invocations.html priere.html visuals.css
+          git commit -m 'Fix mobile burger on iPhone and bust stylesheet cache' || exit 0
+          git push
