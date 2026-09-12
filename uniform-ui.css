@@ -155,3 +155,19 @@ body[data-page="priere"] .hero > .container{
     line-height:1.08!important;
   }
 }
+
+/* Libellé uniforme de la rubrique des prophètes dans tous les menus. */
+a[href="prophetes.html"]{
+  font-size:0!important;
+}
+a[href="prophetes.html"]::after{
+  content:"L’histoire des prophètes";
+  font-size:13px;
+  font-weight:800;
+}
+@media(max-width:900px){
+  .mobile-collapsible a[href="prophetes.html"]::after,
+  .site-header .nav#mainNav a[href="prophetes.html"]::after{
+    font-size:16px;
+  }
+}
