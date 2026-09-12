@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luluao9295-sys.github.io/D-couvrir-l-Islam-/sitemap.xml
