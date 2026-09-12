@@ -203,3 +203,22 @@ a[href="prophetes.html"]::after{
     font-size:16px!important;
   }
 }
+
+/* Page Prophètes : section plus sobre, sans barre de recherche. */
+body[data-page="prophetes"] .prophet-tools{
+  display:none!important;
+}
+body[data-page="prophetes"] .section-head h2{
+  font-size:0!important;
+}
+body[data-page="prophetes"] .section-head h2::after{
+  content:"Les prophètes"!important;
+  display:block!important;
+  font-family:Georgia,serif!important;
+  font-size:clamp(32px,5vw,50px)!important;
+  line-height:1.08!important;
+  color:var(--green)!important;
+}
+body[data-page="prophetes"] .section-head > p{
+  display:none!important;
+}
