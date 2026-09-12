@@ -6,3 +6,25 @@ body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolatio
 @media(max-width:900px){.hero::after{position:relative;display:block;right:auto;top:auto;transform:none;width:min(100%,580px);margin:28px auto -6px;aspect-ratio:12/7}.hero h1,.hero p,.hero .tag,.hero .eyebrow,.hero .progress,.hero .notice{max-width:100%}.section h2::after{width:44px}}
 @media(max-width:640px){.hero::after{margin-top:22px}.card:hover,.pillar:hover,.path-card:hover,.name-card:hover,.wudu-card:hover{transform:none}.topic-card{min-height:190px}}
 @media(prefers-reduced-motion:reduce){.card,.pillar,.step,.path-card,.name-card,.wudu-card{transition:none!important}}
+
+/* Premium editorial system — no emoji dependency */
+.topic-icon,.symbol,.wudu-visual{font-size:0!important;position:relative;background:linear-gradient(145deg,#fbf8f1,#eef3ef)!important;border:1px solid rgba(18,61,52,.13)!important;box-shadow:0 10px 28px rgba(18,61,52,.08)!important}
+.topic-icon::before,.symbol::before,.wudu-visual::before{content:"";width:24px;height:24px;border:1.6px solid #123d34;border-radius:6px;opacity:.9;display:block;box-sizing:border-box}
+.topic-icon::after,.symbol::after,.wudu-visual::after{content:"";position:absolute;width:9px;height:9px;border:1.5px solid #b99352;border-radius:50%;right:9px;bottom:9px;background:#fbf7ef}
+.topic-card[href*="prophetes"] .topic-icon::before,.topic-card[href*="hadiths"] .topic-icon::before{border-radius:3px;box-shadow:inset -6px 0 0 rgba(18,61,52,.07)}
+.topic-card[href*="piliers"] .topic-icon::before{border-radius:2px;transform:rotate(45deg)}
+.topic-card[href*="invocations"] .topic-icon::before{border-radius:50% 50% 44% 44%;height:27px;width:18px}
+.topic-card[href*="priere"] .topic-icon::before{width:27px;height:18px;border-radius:14px 14px 4px 4px;border-bottom-width:2px}
+.hero-card .mosque{font-size:0!important;width:86px;height:86px;border-radius:24px;background:linear-gradient(145deg,#f7f1e5,#e7efe9);border:1px solid rgba(18,61,52,.12);position:relative;margin-bottom:20px;box-shadow:0 12px 28px rgba(18,61,52,.08)}
+.hero-card .mosque::before{content:"";position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:38px;height:35px;border:2px solid #123d34;border-radius:20px 20px 4px 4px}
+.hero-card .mosque::after{content:"";position:absolute;left:50%;top:15px;transform:translateX(-50%);width:10px;height:10px;border:2px solid #b99352;border-radius:50%}
+.eyebrow,.tag{letter-spacing:.09em!important;text-transform:uppercase;font-size:11px!important}
+.card,.pillar,.step,.path-card,.name-card,.wudu-card{border-color:rgba(18,61,52,.08)!important;box-shadow:0 16px 46px rgba(18,61,52,.08)!important;background-color:rgba(255,255,255,.94)!important}
+.card h3,.pillar h3,.path-card h3,.wudu-card h3{letter-spacing:-.025em}
+.section h2::after{height:2px!important;width:42px!important;background:#b99352!important}
+.quick-item{position:relative;padding-left:36px!important}
+.quick-item::before{content:"";position:absolute;left:14px;width:8px;height:8px;border-radius:50%;border:1.5px solid #b99352;background:transparent}
+.count{letter-spacing:.05em;font-size:12px!important;padding:7px 12px!important;box-shadow:none!important}
+.wudu-card .wudu-visual::before{border-radius:50% 50% 55% 55%/45% 45% 65% 65%;width:18px;height:25px}
+.nav a,.links a,.navlinks a{letter-spacing:.01em}
+@media(max-width:640px){.hero-card .mosque{width:72px;height:72px}.topic-icon,.symbol,.wudu-visual{width:48px!important;height:48px!important}.topic-icon::before,.symbol::before,.wudu-visual::before{width:21px;height:21px}}
