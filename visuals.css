@@ -37,3 +37,7 @@ body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolatio
 @media(max-width:900px){.mobile-menu-btn{display:inline-flex!important}}
 
 @media(max-width:640px){.hero-card .mosque{width:72px;height:72px}.topic-icon,.symbol,.wudu-visual{width:48px!important;height:48px!important}.topic-icon::before,.symbol::before,.wudu-visual::before{width:21px;height:21px}}
+/* Safari-safe burger fallback */
+.menu-btn .burger-lines,.mobile-menu-btn .burger-lines{display:block!important;position:relative;width:20px;height:2px;background:#123d34;border-radius:999px;box-shadow:0 -6px 0 #123d34,0 6px 0 #123d34}
+@media(max-width:980px){button.menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;align-items:center!important;justify-content:center!important;z-index:1000!important}}
+@media(max-width:900px){button.mobile-menu-btn{display:inline-flex!important;visibility:visible!important;opacity:1!important;width:46px!important;height:46px!important;padding:0!important;align-items:center!important;justify-content:center!important;z-index:1000!important}}
