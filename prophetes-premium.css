@@ -1,0 +1,21 @@
+/* Premium emerald & gold DA for the Prophets page */
+body[data-page="prophetes"] .hero{background:radial-gradient(circle at 82% 18%,rgba(208,171,91,.28),transparent 24%),radial-gradient(circle at 16% 84%,rgba(18,61,52,.12),transparent 30%),linear-gradient(135deg,#f7efe2 0%,#e7eee8 54%,#f7f0e3 100%)!important}
+body[data-page="prophetes"] .hero::before{background:linear-gradient(120deg,transparent 52%,rgba(18,61,52,.055)),radial-gradient(circle at 78% 32%,rgba(255,225,157,.32),transparent 18%)!important}
+body[data-page="prophetes"] .hero::after{background-image:url('assets/premium-prophetes.svg')!important;width:min(38vw,470px)!important;opacity:.98!important;filter:drop-shadow(0 28px 34px rgba(18,61,52,.18))!important}
+body[data-page="prophetes"] .notice{border:1px solid rgba(185,147,82,.24)!important;border-left:3px solid #b99352!important;background:rgba(255,255,255,.78)!important;box-shadow:0 16px 40px rgba(18,61,52,.08)!important}
+body[data-page="prophetes"] .grid{gap:22px!important}
+body[data-page="prophetes"] .card{background:radial-gradient(circle at 88% 10%,rgba(185,147,82,.10),transparent 22%),linear-gradient(150deg,#fff 0%,#fffaf0 100%)!important;border:1px solid rgba(185,147,82,.24)!important;border-radius:28px!important;padding:27px!important;box-shadow:0 20px 52px rgba(18,61,52,.10)!important}
+body[data-page="prophetes"] .card::before{height:3px!important;background:linear-gradient(90deg,#0d3a31 0%,#c59a4d 48%,#0d3a31 100%)!important;opacity:.92!important}
+body[data-page="prophetes"] .card::after{width:180px!important;height:180px!important;right:-70px!important;bottom:-75px!important;background:radial-gradient(circle,rgba(185,147,82,.14),rgba(185,147,82,0) 68%)!important}
+body[data-page="prophetes"] .card:hover{transform:translateY(-5px)!important;border-color:rgba(185,147,82,.5)!important;box-shadow:0 28px 70px rgba(18,61,52,.16)!important}
+body[data-page="prophetes"] .number{width:44px!important;height:44px!important;background:linear-gradient(145deg,#0d3a31,#1b5c4d)!important;color:#f7e4b4!important;border:1px solid rgba(205,166,87,.65)!important;box-shadow:0 10px 26px rgba(18,61,52,.2)!important;font-family:Georgia,serif!important}
+body[data-page="prophetes"] .symbol{width:76px!important;height:76px!important;border-radius:22px!important;background-image:url('assets/premium-prophetes.svg')!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#0d3a31!important;border:1px solid rgba(185,147,82,.48)!important;box-shadow:0 14px 34px rgba(18,61,52,.19),inset 0 0 0 1px rgba(255,255,255,.12)!important;font-size:0!important}
+body[data-page="prophetes"] .symbol::before,body[data-page="prophetes"] .symbol::after{display:none!important}
+body[data-page="prophetes"] .card h3{font-size:31px!important;letter-spacing:-.035em!important;margin-top:2px!important}
+body[data-page="prophetes"] .meta{color:#a77b35!important;font-size:11px!important;letter-spacing:.11em!important;margin-bottom:16px!important}
+body[data-page="prophetes"] .row{border-top-color:rgba(185,147,82,.18)!important;padding-top:15px!important;margin-top:15px!important}
+body[data-page="prophetes"] .row strong{font-size:12px!important;text-transform:uppercase!important;letter-spacing:.07em!important;color:#123d34!important}
+body[data-page="prophetes"] .lesson{background:linear-gradient(135deg,rgba(18,61,52,.055),rgba(185,147,82,.10))!important;border:1px solid rgba(185,147,82,.2)!important;border-radius:16px!important;padding:15px 16px!important}
+body[data-page="prophetes"] .source{border-top:1px solid rgba(185,147,82,.15);padding-top:12px!important}
+@media(max-width:900px){body[data-page="prophetes"] .hero::after{width:min(92%,430px)!important;margin:26px auto 0!important}}
+@media(max-width:560px){body[data-page="prophetes"] .card{padding:22px!important;border-radius:24px!important}body[data-page="prophetes"] .symbol{width:66px!important;height:66px!important;border-radius:20px!important}body[data-page="prophetes"] .card h3{font-size:27px!important}}
