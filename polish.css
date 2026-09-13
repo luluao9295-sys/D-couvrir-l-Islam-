@@ -46,7 +46,8 @@ body[data-page="home"] #rubriques .topic-card::before{
   content:""!important;position:absolute!important;inset:0!important;height:auto!important;z-index:-1!important;
   background:linear-gradient(180deg,rgba(5,34,28,.02) 10%,rgba(5,34,28,.14) 42%,rgba(5,34,28,.91) 100%)!important;opacity:1!important;
 }
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
+/* Prophètes : visuel sans texte intégré, pour garder exactement la même mise en page que les autres cartes */
+body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/prophetes-symboles-premium.webp')!important;background-position:center!important}
 body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="noms"]{display:flex!important;background-image:url('assets/banner-99noms.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
