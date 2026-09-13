@@ -1,10 +1,39 @@
 {
+  "id": "/D-couvrir-l-Islam-/",
   "name": "Découvrir l’Islam",
-  "short_name": "Découvrir l’Islam",
+  "short_name": "Islam",
   "description": "Apprendre simplement les bases de l’Islam.",
+  "lang": "fr",
+  "dir": "ltr",
   "start_url": "/D-couvrir-l-Islam-/",
+  "scope": "/D-couvrir-l-Islam-/",
   "display": "standalone",
   "background_color": "#fbf7ef",
   "theme_color": "#123d34",
-  "icons": [{"src":"favicon.svg","sizes":"any","type":"image/svg+xml"}]
+  "categories": [
+    "education",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Les prophètes",
+      "url": "/D-couvrir-l-Islam-/prophetes.html"
+    },
+    {
+      "name": "La prière",
+      "url": "/D-couvrir-l-Islam-/priere.html"
+    },
+    {
+      "name": "Invocations",
+      "url": "/D-couvrir-l-Islam-/invocations.html"
+    }
+  ]
 }
