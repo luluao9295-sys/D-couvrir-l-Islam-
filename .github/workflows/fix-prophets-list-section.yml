@@ -1,0 +1,32 @@
+name: Fix prophets list section
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-prophets-list-section.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove search and rename section
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('prophetes.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<h2>Les 25 fiches</h2>', '<h2>Les prophètes</h2>')
+          s=s.replace('Recherchez un prophète, puis touchez sa fiche pour lire son histoire, sa mission et les références coraniques.', 'Touchez un prophète pour découvrir son histoire, sa mission et les références coraniques.')
+          s=re.sub(r'<div class="prophet-tools">.*?<div class="grid"', '<div class="grid"', s, count=1, flags=re.S)
+          s=s.replace("search.addEventListener('input', () => {", "search?.addEventListener('input', () => {")
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prophetes.html
+          git diff --cached --quiet || git commit -m "Remove prophet search and rename section"
+          git push
