@@ -160,7 +160,7 @@ body[data-page="prophetes"] .symbol.prophet-symbol img{display:block;width:46px;
     const name = card.querySelector('h3').textContent.trim();
     const symbol = card.querySelector('.symbol');
     symbol.classList.add('prophet-symbol');
-    symbol.innerHTML = `<img src="assets/prophets/${iconFiles[index]}.svg" alt="" width="96" height="104">`;
+    symbol.innerHTML = `<img src="assets/prophets/${iconFiles[index]}.svg" alt="" width="96" height="104" loading="lazy" decoding="async">`;
     symbol.setAttribute('aria-hidden', 'true');
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
