@@ -266,3 +266,10 @@ html{scrollbar-gutter:stable}
 @media print{header,.site-header,.page-tools,.quick-nav,.page-pagination,.menu-btn,.mobile-menu-btn,.site-utility-links{display:none!important}body{background:#fff!important;color:#111!important}.card,.name-card,article{box-shadow:none!important;break-inside:avoid}}
 
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Outils pédagogiques v1 */
+.favorite-btn,.progress-btn{appearance:none;border:1px solid rgba(185,147,82,.4);border-radius:999px;background:#fffaf0;color:#123d34;padding:9px 13px;font:800 13px/1.2 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+.favorite-btn[aria-pressed="true"],.progress-btn[aria-pressed="true"],.category-filter[aria-pressed="true"]{background:#123d34;color:#fff;border-color:#123d34}
+.learning-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:14px 16px;border:1px solid rgba(18,61,52,.12);border-radius:16px;background:rgba(255,255,255,.75);font-weight:800;color:#123d34}
+.card[hidden],.name-card[hidden]{display:none!important}
+@media(max-width:560px){.learning-status{align-items:flex-start;flex-direction:column}}
