@@ -294,3 +294,7 @@ body[data-page="prophetes"] .section-head h2{font-size:clamp(32px,5vw,50px)!impo
 body[data-page="prophetes"] .section-head h2::after{content:none!important;display:none!important}
 body[data-page="prophetes"] .section-head>p{display:block!important}
 @media(max-width:640px){body[data-page="prophetes"] .prophet-tools{display:block!important}}
+
+/* Contrastes WCAG AA */
+.section-head>p{color:#465f57!important}
+footer,footer strong,footer span,footer a,footer .mini{color:#3f5750!important}
