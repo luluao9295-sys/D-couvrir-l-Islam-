@@ -57,6 +57,28 @@ html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detai
 }
 
 body[data-page="prophetes"] .card h3{font-size:31px!important;letter-spacing:-.035em!important;margin-top:2px!important}
+
+/* Tous les prophètes : même disposition qu'Adam.
+   Nom + arabe sur la première ligne, « — paix sur lui » seul sur la ligne suivante. */
+body[data-page="prophetes"] #prophetGrid .card h3 .honorific{
+  display:inline!important;
+  white-space:nowrap!important;
+}
+body[data-page="prophetes"] #prophetGrid .card h3 .honorific::before,
+body[data-page="prophetes"] #prophetGrid .card h3 .honorific::after{
+  content:none!important;
+  display:none!important;
+}
+body[data-page="prophetes"] #prophetGrid .card h3::after{
+  content:"— paix sur lui"!important;
+  display:block!important;
+  margin-top:7px!important;
+  color:#b99352!important;
+  font:600 .58em/1.2 Georgia,serif!important;
+  letter-spacing:0!important;
+  white-space:nowrap!important;
+}
+
 body[data-page="prophetes"] .meta{color:#a77b35!important;font-size:11px!important;letter-spacing:.11em!important;margin-bottom:16px!important}
 body[data-page="prophetes"] .row{border-top-color:rgba(185,147,82,.18)!important;padding-top:15px!important;margin-top:15px!important}
 body[data-page="prophetes"] .row strong{font-size:12px!important;text-transform:uppercase!important;letter-spacing:.07em!important;color:#123d34!important}
