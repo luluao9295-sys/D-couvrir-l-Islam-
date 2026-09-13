@@ -26,7 +26,8 @@ body[data-page="home"] #accueil.hero{
 }
 body[data-page="home"] #accueil.hero::before,
 body[data-page="home"] #accueil.hero::after{display:none!important;content:none!important;background:none!important}
-body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:780px!important;margin-left:0!important}
+body[data-page="home"] #accueil .hero-grid{display:block!important;max-width:1180px!important;margin-inline:auto!important}
+body[data-page="home"] #accueil .hero-grid>div{max-width:780px!important}
 body[data-page="home"] #accueil h1{color:#fff7df!important;text-shadow:0 4px 34px rgba(0,0,0,.42)!important;margin-top:0!important}
 body[data-page="home"] #accueil p{color:#f3ead6!important;text-shadow:0 2px 18px rgba(0,0,0,.34)!important}
 body[data-page="home"] #accueil .eyebrow{background:rgba(9,49,40,.64)!important;color:#f4d58e!important;border-color:rgba(244,213,142,.44)!important;backdrop-filter:blur(9px)}
