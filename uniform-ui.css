@@ -222,3 +222,24 @@ body[data-page="prophetes"] .section-head h2::after{
 body[data-page="prophetes"] .section-head > p{
   display:none!important;
 }
+
+/* Mobile: garder le titre “Les prophètes” bien séparé de la première carte. */
+@media(max-width:640px){
+  body[data-page="prophetes"] .section-head{
+    margin-bottom:22px!important;
+  }
+  body[data-page="prophetes"] .section-head > div{
+    display:block!important;
+    width:100%!important;
+  }
+  body[data-page="prophetes"] .section-head h2{
+    margin:18px 0 0!important;
+    position:relative!important;
+    z-index:1!important;
+  }
+  body[data-page="prophetes"] .section-head h2::after{
+    font-size:38px!important;
+    line-height:1.05!important;
+    margin-top:0!important;
+  }
+}
