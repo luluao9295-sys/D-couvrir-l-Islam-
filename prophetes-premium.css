@@ -12,7 +12,7 @@ body[data-page="prophetes"] .card::after{width:180px!important;height:180px!impo
 body[data-page="prophetes"] .card:hover{transform:translateY(-5px)!important;border-color:rgba(185,147,82,.5)!important;box-shadow:0 28px 70px rgba(18,61,52,.16)!important}
 body[data-page="prophetes"] .number{width:44px!important;height:44px!important;background:linear-gradient(145deg,#0d3a31,#1b5c4d)!important;color:#f7e4b4!important;border:1px solid rgba(205,166,87,.65)!important;box-shadow:0 10px 26px rgba(18,61,52,.2)!important;font-family:Georgia,serif!important}
 
-/* Logos : une seule methode, uniquement les <img> WebP injectees par prophetes.html */
+/* Logos : aucun recadrage, aucun zoom, proportions originales conservees */
 html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol,
 html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol{
   display:grid!important;
@@ -24,11 +24,11 @@ html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detai
   padding:0!important;
   margin-bottom:14px!important;
   border-radius:16px!important;
-  overflow:hidden!important;
-  background:none!important;
+  overflow:visible!important;
+  background:transparent!important;
   background-image:none!important;
-  border:1px solid rgba(185,147,82,.48)!important;
-  box-shadow:0 10px 24px rgba(18,61,52,.16)!important;
+  border:0!important;
+  box-shadow:none!important;
 }
 html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol::before,
 html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol::after,
@@ -44,14 +44,15 @@ html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detai
   opacity:1!important;
   position:static!important;
   inset:auto!important;
-  width:100%!important;
-  height:100%!important;
-  max-width:none!important;
-  max-height:none!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
   object-fit:contain!important;
   object-position:center!important;
   filter:none!important;
   transform:none!important;
+  border-radius:0!important;
   z-index:1!important;
 }
 
@@ -68,6 +69,6 @@ body[data-page="prophetes"] .source{border-top:1px solid rgba(185,147,82,.15);pa
   body[data-page="prophetes"] .card h3{font-size:27px!important}
   html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol,
   html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol{
-    width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;border-radius:15px!important;
+    width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;
   }
 }
