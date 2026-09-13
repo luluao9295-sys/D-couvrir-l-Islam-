@@ -48,7 +48,7 @@ body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolatio
 .topic-icon::before,.topic-icon::after{display:none!important}
 .topic-card[href*="prophetes"] .topic-icon{background-image:url('assets/premium-prophetes.svg')!important}
 .topic-card[href*="piliers"] .topic-icon{background-image:url('assets/premium-piliers.svg')!important}
-.topic-card[href="#noms"] .topic-icon{background-image:url('assets/premium-noms.svg')!important}
+.topic-card[href*="noms"] .topic-icon{background-image:url('assets/premium-noms.svg')!important}
 .topic-card[href*="hadiths"] .topic-icon{background-image:url('assets/premium-hadiths.svg')!important}
 .topic-card[href*="invocations"] .topic-icon{background-image:url('assets/premium-invocations.svg')!important}
 .topic-card[href*="priere"] .topic-icon{background-image:url('assets/premium-priere.svg')!important}
