@@ -73,7 +73,7 @@ body{background:#f7f1e7}.prayer-visual-hero{display:grid;grid-template-columns:1
 <script id="prayerToolsScript">
 (() => {
   const main=document.getElementById('contenu');
-  const sections=[...main.querySelectorAll('section[id]')];
+  const sections=[...main.querySelectorAll('section')];sections.forEach((section,index)=>{if(!section.id)section.id='priere-partie-'+(index+1)});
   if(sections.length){
     const nav=document.createElement('nav');nav.className='quick-nav';nav.setAttribute('aria-label','Sommaire de la prière');
     nav.innerHTML=sections.map(section=>{const title=section.querySelector('h2')?.textContent.trim()||section.id;return '<a href="#'+section.id+'">'+title.replace(/^\d+\.\s*/,'')+'</a>'}).join('');
