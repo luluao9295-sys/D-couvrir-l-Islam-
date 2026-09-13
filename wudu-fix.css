@@ -1,12 +1,20 @@
-/* Dedicated premium wudu icons — avoids sprite cropping issues on Safari */
-body[data-page="priere"] .wudu-visual{background-color:#0d3a31!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;border:1px solid rgba(185,147,82,.42)!important;box-shadow:0 12px 26px rgba(18,61,52,.18)!important}
-body[data-page="priere"] .wudu-visual::before,body[data-page="priere"] .wudu-visual::after{display:none!important}
-body[data-page="priere"] .wudu-card:nth-child(1) .wudu-visual{background-image:url('assets/wudu-mains.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(2) .wudu-visual{background-image:url('assets/wudu-bouche.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(3) .wudu-visual{background-image:url('assets/wudu-nez.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(4) .wudu-visual{background-image:url('assets/wudu-visage.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(5) .wudu-visual{background-image:url('assets/wudu-bras.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-image:url('assets/wudu-tete.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-image:url('assets/wudu-oreilles.svg')!important}
-body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-image:url('assets/wudu-pieds.svg')!important}
-@media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:88px!important}}
+/* Ablutions — restauration des anciens médaillons approuvés, assortis aux bannières */
+body[data-page="priere"] .wudu-visual{
+  background-color:#0d3a31!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border:1px solid rgba(185,147,82,.42)!important;
+  box-shadow:0 12px 26px rgba(18,61,52,.18)!important;
+}
+body[data-page="priere"] .wudu-visual::before,
+body[data-page="priere"] .wudu-visual::after{display:none!important}
+body[data-page="priere"] .wudu-card:nth-child(1) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_mains_sous_l_eau.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(2) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_buccal.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(3) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_nasal.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(4) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_ablutions_sur_fond_e%CC%81meraude.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(5) .wudu-visual{background-image:url('lavage_rituel_des_bras_sous_l_eau.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-image:url('emble%CC%80me_dore%CC%81_du_lavage_rituel.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_du_lavage_de_l_oreille.png')!important}
+body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-image:url('ablution_dore%CC%81e_sous_arche_islamique.png')!important}
+@media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:96px!important}}
