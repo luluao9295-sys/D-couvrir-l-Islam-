@@ -273,3 +273,17 @@ html{scrollbar-gutter:stable}
 .learning-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:14px 16px;border:1px solid rgba(18,61,52,.12);border-radius:16px;background:rgba(255,255,255,.75);font-weight:800;color:#123d34}
 .card[hidden],.name-card[hidden]{display:none!important}
 @media(max-width:560px){.learning-status{align-items:flex-start;flex-direction:column}}
+
+/* Responsive final 375–1920 */
+html,body{max-width:100%;overflow-x:clip}
+img,svg,video{max-width:100%;height:auto}
+:where(.site-header,.header,body>header){position:sticky;top:0;z-index:1000;background:rgba(251,247,239,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+:where(.site-header,.header,body>header) :where(a,button){min-height:44px}
+:where(.hero,.info-hero){background-size:cover!important;background-repeat:no-repeat!important}
+:where(.card,.name-card,.pillar,.info-card){min-width:0}
+:where(p,.meaning,.trans,.meta,.source){overflow-wrap:anywhere}
+.arabic,[dir="rtl"]{font-size:clamp(1.2rem,3.2vw,1.8rem);line-height:1.9;text-align:right;overflow-wrap:normal;word-break:normal}
+@media(min-width:1200px){.container{width:min(1180px,calc(100% - 64px))}.hero{min-height:min(620px,72vh);display:flex;align-items:center}.hero h1{max-width:920px}}
+@media(min-width:641px) and (max-width:1024px){.container{width:min(100% - 40px,920px)}.hero{background-position:center!important}.grid,.names-grid{gap:16px}}
+@media(max-width:640px){.container{width:min(100% - 24px,1180px)}:where(.hero,.info-hero){background-position:60% center!important}.hero h1,.info-hero h1{font-size:clamp(36px,12vw,56px)!important}.section{padding-block:44px!important}.card,.name-card,.pillar,.info-card{border-radius:20px!important}.mobile-collapsible a,.nav a,.links a,.navlinks a{min-height:44px;display:flex;align-items:center}}
+@media(max-height:520px) and (orientation:landscape){:where(.hero,.info-hero){min-height:auto!important;padding-block:36px!important;background-position:center 42%!important}.hero h1,.info-hero h1{font-size:clamp(34px,7vw,52px)!important}.section{padding-block:36px!important}}
