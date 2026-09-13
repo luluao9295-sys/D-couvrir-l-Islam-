@@ -1,0 +1,33 @@
+name: Bump prophets CSS cache
+
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-prophets-css-v6.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  bump-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump prophetes premium CSS version
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('prophetes.html')
+          s = p.read_text(encoding='utf-8')
+          s2 = s.replace('prophetes-premium.css?v=5', 'prophetes-premium.css?v=6')
+          if s2 == s:
+              raise SystemExit('Version link not found or already changed')
+          p.write_text(s2, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prophetes.html
+          git commit -m "Bump prophets CSS cache to v6"
+          git push
