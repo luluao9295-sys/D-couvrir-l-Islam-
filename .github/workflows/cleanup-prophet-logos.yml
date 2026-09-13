@@ -1,0 +1,52 @@
+name: Cleanup prophet logos
+on:
+  push:
+    paths:
+      - '.github/workflows/cleanup-prophet-logos.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clean old prophet logo code
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('prophetes.html')
+          s = p.read_text()
+
+          # Force the new clean stylesheet version.
+          s = s.replace('prophetes-premium.css?v=6', 'prophetes-premium.css?v=7')
+
+          # Remove the old unused SVG icon bank and generator.
+          s = re.sub(r"\n\s*const iconDrawings = \[.*?\n\s*const makeIcon = drawing => .*?;\n", "\n", s, flags=re.S)
+
+          # In the modal, keep number/title/meta hidden, but never hide the logo.
+          s = s.replace(
+              '.prophet-dialog-body .symbol,.prophet-dialog-body .number,.prophet-dialog-body h3,.prophet-dialog-body .meta{display:none}',
+              '.prophet-dialog-body .number,.prophet-dialog-body h3,.prophet-dialog-body .meta{display:none}'
+          )
+
+          # Remove legacy inline logo styling so prophetes-premium.css is the single source of truth.
+          s = re.sub(r'\nbody\[data-page="prophetes"\] \.symbol\.prophet-symbol\{.*?\}\n', '\n', s)
+          s = re.sub(r'body\[data-page="prophetes"\] \.symbol\.prophet-symbol svg\{.*?\}\n', '', s)
+          s = re.sub(r'body\[data-page="prophetes"\] \.symbol\.prophet-symbol img\{.*?\}\n', '', s)
+          s = s.replace('body[data-page="prophetes"] .symbol.prophet-symbol svg,body[data-page="prophetes"] .symbol.prophet-symbol img{width:39px;height:39px}', '')
+
+          p.write_text(s)
+          PY
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prophetes.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Nettoyer les anciens codes des logos prophètes"
+          git push
