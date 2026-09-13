@@ -144,3 +144,17 @@ body[data-page="prophetes"] .grid{
     white-space:normal!important;
   }
 }
+
+/* Logos individuels définitifs */
+body[data-page="prophetes"] .card .symbol.prophet-symbol{
+  display:grid!important;
+  place-items:center!important;
+  background-image:none!important;
+  background:radial-gradient(circle at 34% 26%,#235d50 0%,#0d3a31 72%)!important;
+}
+body[data-page="prophetes"] .card .symbol.prophet-symbol img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+}
