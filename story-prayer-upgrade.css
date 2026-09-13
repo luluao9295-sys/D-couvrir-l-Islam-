@@ -1,23 +1,11 @@
 /* Prophètes + prière — visual upgrade */
-
-/* Mention de respect affichée après chaque nom de prophète, y compris dans la fiche ouverte. */
 body[data-page="prophetes"] .card h3::after,
-body[data-page="prophetes"] .prophet-dialog-title::after{
-  content:" — paix sur lui";
-  font-size:.58em;
-  font-weight:600;
-  color:var(--gold);
-  white-space:normal;
-}
-
-/* PRAYER HERO */
+body[data-page="prophetes"] .prophet-dialog-title::after{content:" — paix sur lui";font-size:.58em;font-weight:600;color:var(--gold);white-space:normal}
 body[data-page="priere"] .prayer-visual-hero{grid-template-columns:1fr!important}
 body[data-page="priere"] .hero-art{min-height:0!important;margin-top:20px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}
 body[data-page="priere"] .hero-art img{display:none!important}
 body[data-page="priere"] .hero-quote{position:relative!important;inset:auto!important;display:block!important;padding:24px 26px!important;border-radius:22px!important;background:#fffaf0!important;border:1px solid rgba(185,147,82,.35)!important;box-shadow:0 16px 38px rgba(18,61,52,.10)!important;font-size:clamp(17px,2vw,22px)!important;line-height:1.55!important}
 body[data-page="priere"] .hero-quote small{display:block!important;margin-top:8px!important;color:#6b7a76!important;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:14px!important}
-
-/* PRAYER TIME CARDS */
 body[data-page="priere"] .five .prayer{min-height:300px!important;padding:154px 18px 20px!important;background:#fff!important;border-radius:24px!important;overflow:hidden!important;box-shadow:0 18px 46px rgba(18,61,52,.10)!important}
 body[data-page="priere"] .five .prayer::before{content:""!important;position:absolute!important;inset:0 0 auto 0!important;height:132px!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;border-radius:24px 24px 0 0!important}
 body[data-page="priere"] .five .prayer::after{content:""!important;position:absolute!important;left:0;right:0;top:92px;height:40px!important;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.9))!important;pointer-events:none!important}
@@ -27,120 +15,15 @@ body[data-page="priere"] .five .prayer:nth-child(3)::before{background-image:url
 body[data-page="priere"] .five .prayer:nth-child(4)::before{background-image:url('assets/8A2C0B96-6B06-46E2-A320-5756F2630FD1.png')!important}
 body[data-page="priere"] .five .prayer:nth-child(5)::before{background-image:url('assets/E423E512-872C-4361-AC3F-DE257A45B122.png')!important}
 body[data-page="priere"] .five .prayer .tag{top:16px!important;left:16px!important;z-index:2!important;background:rgba(255,255,255,.9)!important;backdrop-filter:blur(8px)!important;box-shadow:0 5px 18px rgba(0,0,0,.10)!important}
-body[data-page="priere"] .five .prayer strong,body[data-page="priere"] .five .prayer .time,body[data-page="priere"] .five .prayer > *{position:relative;z-index:2}
-
-/* 25 emblèmes premium illustrés — DA émeraude/doré identique aux ablutions validées. */
-body[data-page="prophetes"] .card .symbol.prophet-symbol{
-  position:relative!important;
-  width:150px!important;
-  height:150px!important;
-  margin:0 0 20px!important;
-  padding:0!important;
-  border:0!important;
-  border-radius:28px!important;
-  overflow:hidden!important;
-  background-repeat:no-repeat!important;
-  background-size:500px 625px!important;
-  background-color:#fbf7ef!important;
-  box-shadow:0 14px 32px rgba(18,61,52,.18)!important;
-  transition:transform .22s ease,box-shadow .22s ease!important;
-}
-body[data-page="prophetes"] .card .symbol.prophet-symbol::before,
-body[data-page="prophetes"] .card .symbol.prophet-symbol::after{display:none!important}
-body[data-page="prophetes"] .card .symbol.prophet-symbol img{display:none!important}
-body[data-page="prophetes"] .card:hover .symbol.prophet-symbol,
-body[data-page="prophetes"] .card:focus-visible .symbol.prophet-symbol{
-  transform:translateY(-3px) scale(1.02)!important;
-  box-shadow:0 20px 42px rgba(18,61,52,.25)!important;
-}
-
-/* Planches 01–05 */
-body[data-page="prophetes"] .card:nth-child(1) .symbol,
-body[data-page="prophetes"] .card:nth-child(2) .symbol,
-body[data-page="prophetes"] .card:nth-child(3) .symbol,
-body[data-page="prophetes"] .card:nth-child(4) .symbol,
-body[data-page="prophetes"] .card:nth-child(5) .symbol{background-image:url('assets/sheet_01_05_adam_to_salih.svg')!important}
-/* Planches 06–10 */
-body[data-page="prophetes"] .card:nth-child(6) .symbol,
-body[data-page="prophetes"] .card:nth-child(7) .symbol,
-body[data-page="prophetes"] .card:nth-child(8) .symbol,
-body[data-page="prophetes"] .card:nth-child(9) .symbol,
-body[data-page="prophetes"] .card:nth-child(10) .symbol{background-image:url('assets/sheet_06_10_ibrahim_to_yaqub.svg')!important}
-/* Planches 11–15 */
-body[data-page="prophetes"] .card:nth-child(11) .symbol,
-body[data-page="prophetes"] .card:nth-child(12) .symbol,
-body[data-page="prophetes"] .card:nth-child(13) .symbol,
-body[data-page="prophetes"] .card:nth-child(14) .symbol,
-body[data-page="prophetes"] .card:nth-child(15) .symbol{background-image:url('assets/sheet_11_15_yusuf_to_harun.svg')!important}
-/* Planches 16–20 */
-body[data-page="prophetes"] .card:nth-child(16) .symbol,
-body[data-page="prophetes"] .card:nth-child(17) .symbol,
-body[data-page="prophetes"] .card:nth-child(18) .symbol,
-body[data-page="prophetes"] .card:nth-child(19) .symbol,
-body[data-page="prophetes"] .card:nth-child(20) .symbol{background-image:url('assets/sheet_16_20_dhulkifl_to_alyasa.svg')!important}
-/* Planches 21–25 */
-body[data-page="prophetes"] .card:nth-child(21) .symbol,
-body[data-page="prophetes"] .card:nth-child(22) .symbol,
-body[data-page="prophetes"] .card:nth-child(23) .symbol,
-body[data-page="prophetes"] .card:nth-child(24) .symbol,
-body[data-page="prophetes"] .card:nth-child(25) .symbol{background-image:url('assets/sheet_21_25_yunus_to_muhammad.svg')!important}
-
-/* Cadrage : badge complet davantage visible. */
-body[data-page="prophetes"] .card:nth-child(5n+1) .symbol{background-position:-17px -67px!important}
-body[data-page="prophetes"] .card:nth-child(5n+2) .symbol{background-position:-178px -67px!important}
-body[data-page="prophetes"] .card:nth-child(5n+3) .symbol{background-position:-339px -67px!important}
-body[data-page="prophetes"] .card:nth-child(5n+4) .symbol{background-position:-82px -306px!important}
-body[data-page="prophetes"] .card:nth-child(5n+5) .symbol{background-position:-263px -306px!important}
-
-@media(max-width:640px){
-  body[data-page="prophetes"] .card .symbol.prophet-symbol{
-    width:128px!important;
-    height:128px!important;
-    border-radius:24px!important;
-    background-size:425px 531px!important;
-  }
-  body[data-page="prophetes"] .card:nth-child(5n+1) .symbol{background-position:-14px -57px!important}
-  body[data-page="prophetes"] .card:nth-child(5n+2) .symbol{background-position:-151px -57px!important}
-  body[data-page="prophetes"] .card:nth-child(5n+3) .symbol{background-position:-288px -57px!important}
-  body[data-page="prophetes"] .card:nth-child(5n+4) .symbol{background-position:-70px -260px!important}
-  body[data-page="prophetes"] .card:nth-child(5n+5) .symbol{background-position:-224px -260px!important}
-  body[data-page="priere"] .hero-quote{padding:20px!important}
-  body[data-page="priere"] .five{grid-template-columns:1fr 1fr!important;gap:12px!important}
-  body[data-page="priere"] .five .prayer{min-height:270px!important;padding:138px 14px 16px!important}
-  body[data-page="priere"] .five .prayer::before{height:118px!important}
-  body[data-page="priere"] .five .prayer::after{top:80px!important;height:38px!important}
-}
+body[data-page="priere"] .five .prayer strong,body[data-page="priere"] .five .prayer .time,body[data-page="priere"] .five .prayer>*{position:relative;z-index:2}
+/* 25 fichiers individuels découpés depuis les planches premium. */
+body[data-page="prophetes"] .card .symbol.prophet-symbol{position:relative!important;width:150px!important;height:150px!important;margin:0 0 20px!important;padding:0!important;border:0!important;border-radius:28px!important;overflow:hidden!important;background:none!important;box-shadow:0 14px 32px rgba(18,61,52,.18)!important;transition:transform .22s ease,box-shadow .22s ease!important}
+body[data-page="prophetes"] .card .symbol.prophet-symbol::before,body[data-page="prophetes"] .card .symbol.prophet-symbol::after{display:none!important}
+body[data-page="prophetes"] .card .symbol.prophet-symbol img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;margin:0!important;transform:none!important;filter:none!important}
+body[data-page="prophetes"] .card:hover .symbol.prophet-symbol,body[data-page="prophetes"] .card:focus-visible .symbol.prophet-symbol{transform:translateY(-3px) scale(1.02)!important;box-shadow:0 20px 42px rgba(18,61,52,.25)!important}
+body[data-page="prophetes"] .section-head{position:relative!important;z-index:3!important;margin-bottom:30px!important;overflow:visible!important}
+body[data-page="prophetes"] .section-head h2{display:block!important;font-family:Georgia,serif!important;font-size:clamp(32px,5vw,50px)!important;line-height:1.08!important;margin:16px 0 0!important;color:var(--green)!important;overflow:visible!important}
+body[data-page="prophetes"] .section-head h2::after{content:none!important;display:none!important}
+body[data-page="prophetes"] .grid{position:relative!important;z-index:1!important}
+@media(max-width:640px){body[data-page="prophetes"] .card .symbol.prophet-symbol{width:128px!important;height:128px!important;border-radius:24px!important}body[data-page="priere"] .hero-quote{padding:20px!important}body[data-page="priere"] .five{grid-template-columns:1fr 1fr!important;gap:12px!important}body[data-page="priere"] .five .prayer{min-height:270px!important;padding:138px 14px 16px!important}body[data-page="priere"] .five .prayer::before{height:118px!important}body[data-page="priere"] .five .prayer::after{top:80px!important;height:38px!important}body[data-page="prophetes"] .section-head{margin-bottom:26px!important}body[data-page="prophetes"] .section-head h2{font-size:38px!important;line-height:1.08!important;white-space:normal!important}}
 @media(max-width:430px){body[data-page="priere"] .five{grid-template-columns:1fr!important}body[data-page="priere"] .five .prayer{min-height:260px!important}}
-
-/* Fix définitif : le titre de section Prophètes doit rester entièrement visible au-dessus des cartes. */
-body[data-page="prophetes"] .section-head{
-  position:relative!important;
-  z-index:3!important;
-  margin-bottom:30px!important;
-  overflow:visible!important;
-}
-body[data-page="prophetes"] .section-head h2{
-  display:block!important;
-  font-family:Georgia,serif!important;
-  font-size:clamp(32px,5vw,50px)!important;
-  line-height:1.08!important;
-  margin:16px 0 0!important;
-  color:var(--green)!important;
-  overflow:visible!important;
-}
-body[data-page="prophetes"] .section-head h2::after{
-  content:none!important;
-  display:none!important;
-}
-body[data-page="prophetes"] .grid{
-  position:relative!important;
-  z-index:1!important;
-}
-@media(max-width:640px){
-  body[data-page="prophetes"] .section-head{margin-bottom:26px!important}
-  body[data-page="prophetes"] .section-head h2{
-    font-size:38px!important;
-    line-height:1.08!important;
-    white-space:normal!important;
-  }
-}
