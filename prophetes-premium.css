@@ -47,3 +47,9 @@ body[data-page="prophetes"] #prophetGrid .card:nth-child(22) .symbol{background-
 body[data-page="prophetes"] #prophetGrid .card:nth-child(23) .symbol{background-image:url('23-yahya.webp')!important}
 body[data-page="prophetes"] #prophetGrid .card:nth-child(24) .symbol{background-image:url('24-isa.webp')!important}
 body[data-page="prophetes"] #prophetGrid .card:nth-child(25) .symbol{background-image:url('25-muhammad.webp')!important}
+
+
+/* Modal: afficher le vrai logo WebP du prophète */
+body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol{display:grid!important;overflow:hidden!important;padding:0!important;background:#0d3a31!important}
+body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol::before{display:none!important}
+body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol>img{display:block!important;opacity:1!important;position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:cover!important;filter:none!important;z-index:3!important}
