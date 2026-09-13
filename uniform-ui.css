@@ -298,3 +298,75 @@ footer,footer strong,footer span,footer a,footer .mini{color:#3f5750!important}
     min-height:52px!important;
   }
 }
+
+
+/* Logo responsive final — portrait, paysage, tablette et ordinateur */
+.brand{
+  background-image:url('1BB72BE9-C5CA-4A94-8DC1-2494A84B83DE.png')!important;
+  background-position:left center!important;
+  background-size:contain!important;
+  background-repeat:no-repeat!important;
+}
+.brand-logo{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+}
+@media(max-width:640px) and (orientation:portrait){
+  .brand{
+    width:min(300px,calc(100vw - 86px))!important;
+    height:56px!important;
+    min-height:56px!important;
+  }
+}
+@media(max-height:520px) and (orientation:landscape){
+  .site-header .nav-row,
+  header > .container.nav{
+    min-height:72px!important;
+    height:72px!important;
+  }
+  .brand{
+    width:clamp(320px,48vw,460px)!important;
+    height:62px!important;
+    min-height:62px!important;
+  }
+  body[data-page="home"] #accueil.hero{
+    width:calc(100% - 24px)!important;
+    min-height:calc(100svh - 88px)!important;
+    margin-top:12px!important;
+    padding:42px 0!important;
+    background-position:center 44%!important;
+  }
+  body[data-page="home"] #accueil h1{
+    font-size:clamp(38px,6vw,58px)!important;
+    max-width:720px!important;
+  }
+  body[data-page="home"] #accueil p{
+    font-size:clamp(16px,2.1vw,20px)!important;
+    max-width:680px!important;
+  }
+  body[data-page="home"] #accueil .hero-actions{
+    margin-top:22px!important;
+    display:flex!important;
+  }
+  body[data-page="home"] #accueil .btn{
+    width:auto!important;
+    min-height:48px!important;
+  }
+}
+@media(min-width:641px) and (min-height:521px) and (max-width:1100px){
+  .brand{
+    width:clamp(300px,36vw,390px)!important;
+    height:64px!important;
+    min-height:64px!important;
+  }
+}
+@media(min-width:1101px){
+  .brand{
+    width:clamp(310px,22vw,390px)!important;
+    height:66px!important;
+    min-height:66px!important;
+  }
+}
