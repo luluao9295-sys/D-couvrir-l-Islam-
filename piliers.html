@@ -60,4 +60,17 @@
   });
 })();
 </script>
+<script id="pillarToolsScript">
+(() => {
+  const pillars=[...document.querySelectorAll('.pillar')];
+  const names=['Chahada','Salât','Zakât','Jeûne','Hajj'];
+  pillars.forEach((pillar,index)=>pillar.id='pilier-'+(index+1));
+  const nav=document.createElement('nav');
+  nav.className='quick-nav'; nav.setAttribute('aria-label','Accès rapide aux cinq piliers');
+  nav.innerHTML=names.map((name,index)=>'<a href="#pilier-'+(index+1)+'">'+(index+1)+'. '+name+'</a>').join('');
+  document.querySelector('main .container')?.prepend(nav);
+  const salat=pillars[1]?.querySelector('.source');
+  if(salat&&!salat.querySelector('a')) salat.insertAdjacentHTML('beforeend',' <a href="priere.html">Voir le guide de la prière →</a>');
+})();
+</script>
 </body></html>
