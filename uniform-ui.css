@@ -278,3 +278,23 @@ body[data-page="prophetes"] .section-head>p{display:block!important}
 /* Contrastes WCAG AA */
 .section-head>p{color:#465f57!important}
 footer,footer strong,footer span,footer a,footer .mini{color:#3f5750!important}
+
+/* Nouveau logo principal : remplace visuellement le titre texte tout en gardant le texte accessible. */
+.brand{
+  display:block!important;
+  width:clamp(210px,23vw,310px)!important;
+  height:58px!important;
+  min-height:58px!important;
+  flex:0 0 auto!important;
+  font-size:0!important;
+  line-height:0!important;
+  color:transparent!important;
+  background:url('assets/logo-decouvrir-islam.webp') left center / contain no-repeat!important;
+}
+@media(max-width:640px){
+  .brand{
+    width:min(255px,calc(100vw - 92px))!important;
+    height:52px!important;
+    min-height:52px!important;
+  }
+}
