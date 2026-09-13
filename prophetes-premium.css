@@ -19,3 +19,33 @@ body[data-page="prophetes"] .lesson{background:linear-gradient(135deg,rgba(18,61
 body[data-page="prophetes"] .source{border-top:1px solid rgba(185,147,82,.15);padding-top:12px!important}
 @media(max-width:900px){body[data-page="prophetes"] .hero::after{width:min(92%,430px)!important;margin:26px auto 0!important}}
 @media(max-width:560px){body[data-page="prophetes"] .card{padding:22px!important;border-radius:24px!important}body[data-page="prophetes"] .symbol{width:66px!important;height:66px!important;border-radius:20px!important}body[data-page="prophetes"] .card h3{font-size:27px!important}}
+
+/* 25 visuels premium WebP uploadés à la racine du dépôt */
+body[data-page="prophetes"] .symbol.prophet-symbol{position:relative!important;overflow:hidden!important;padding:0!important}
+body[data-page="prophetes"] .symbol.prophet-symbol>img{opacity:0!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+body[data-page="prophetes"] .symbol.prophet-symbol::before{content:""!important;display:block!important;position:absolute!important;inset:0!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;border-radius:inherit!important;z-index:2!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(1) .symbol.prophet-symbol::before{background-image:url('01-adam.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(2) .symbol.prophet-symbol::before{background-image:url('02-idris.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(3) .symbol.prophet-symbol::before{background-image:url('03-nuh.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(4) .symbol.prophet-symbol::before{background-image:url('04-hud.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(5) .symbol.prophet-symbol::before{background-image:url('05-salih.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(6) .symbol.prophet-symbol::before{background-image:url('06-ibrahim.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(7) .symbol.prophet-symbol::before{background-image:url('07-lut.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(8) .symbol.prophet-symbol::before{background-image:url('08-ismail.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(9) .symbol.prophet-symbol::before{background-image:url('09-ishaq.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(10) .symbol.prophet-symbol::before{background-image:url('10-yaqub.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(11) .symbol.prophet-symbol::before{background-image:url('11-yusuf.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(12) .symbol.prophet-symbol::before{background-image:url('12-ayyub.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(13) .symbol.prophet-symbol::before{background-image:url('13-shuayb.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(14) .symbol.prophet-symbol::before{background-image:url('14-musa.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(15) .symbol.prophet-symbol::before{background-image:url('15-harun.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(16) .symbol.prophet-symbol::before{background-image:url('16-dhul-kifl.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(17) .symbol.prophet-symbol::before{background-image:url('17-dawud.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(18) .symbol.prophet-symbol::before{background-image:url('18-sulayman.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(19) .symbol.prophet-symbol::before{background-image:url('19-ilyas.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(20) .symbol.prophet-symbol::before{background-image:url('20-al-yasa.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(21) .symbol.prophet-symbol::before{background-image:url('21-yunus.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(22) .symbol.prophet-symbol::before{background-image:url('22-zakariya.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(23) .symbol.prophet-symbol::before{background-image:url('23-yahya.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(24) .symbol.prophet-symbol::before{background-image:url('24-isa.webp')!important}
+body[data-page="prophetes"] #prophetGrid .card:nth-child(25) .symbol.prophet-symbol::before{background-image:url('25-muhammad.webp')!important}
