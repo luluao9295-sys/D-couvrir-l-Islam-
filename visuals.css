@@ -1,4 +1,4 @@
-@import url("premium-generated.css?v=4");
+@import url("premium-generated.css?v=5");
 /* Global premium visuals */
 body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolation:isolate}.hero>.container{position:relative;z-index:2}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 84% 18%,rgba(255,229,168,.36),transparent 22%),linear-gradient(120deg,transparent 55%,rgba(18,61,52,.05));z-index:-2;pointer-events:none}.hero::after{content:"";position:absolute;right:max(18px,calc((100vw - 1180px)/2));top:50%;transform:translateY(-50%);width:min(42vw,540px);aspect-ratio:12/7;background-image:var(--page-art);background-size:contain;background-repeat:no-repeat;background-position:center;opacity:.96;filter:drop-shadow(0 28px 35px rgba(18,61,52,.12));z-index:1;pointer-events:none}.hero h1,.hero p,.hero .tag,.hero .eyebrow,.hero .progress,.hero .notice{max-width:57%}body[data-page="prophetes"]{--page-art:url('assets/visual-prophetes.svg')}body[data-page="piliers"]{--page-art:url('assets/visual-piliers.svg')}body[data-page="hadiths"]{--page-art:url('assets/visual-hadiths.svg')}body[data-page="invocations"]{--page-art:url('assets/visual-invocations.svg')}body[data-page="priere"]{--page-art:url('assets/visual-piliers.svg')}body[data-page="home"]{--page-art:url('visual-mosque.svg')}
 .hero-card,.card,.pillar,.step,.path-card,.name-card,.wudu-card{position:relative;overflow:hidden}.hero-card::after,.card::after,.pillar::after,.path-card::after,.name-card::after,.wudu-card::after{content:"";position:absolute;right:-28px;bottom:-34px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(185,147,82,.11),rgba(185,147,82,0) 70%);pointer-events:none}.card::before,.pillar::before,.step::before,.path-card::before,.name-card::before,.wudu-card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#123d34,#b99352,#1c5c4f);opacity:.62;pointer-events:none}
@@ -60,33 +60,8 @@ body[data-page]{--page-art:none}.hero{position:relative;overflow:hidden;isolatio
 /* Wudu premium icons from the approved ablution artwork */
 body[data-page="priere"] .wudu-visual{background-image:url('assets/ablutions-premium.webp')!important;background-size:900% auto!important;background-repeat:no-repeat!important;background-color:#0d3a31!important;border-color:rgba(185,147,82,.42)!important;box-shadow:0 12px 26px rgba(18,61,52,.18)!important}
 body[data-page="priere"] .wudu-visual::before,body[data-page="priere"] .wudu-visual::after{display:none!important}
-body[data-page="priere"] .wudu-card:nth-child(1) .wudu-visual{background-position:13% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(2) .wudu-visual{background-position:25.4% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(3) .wudu-visual{background-position:37.8% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(4) .wudu-visual{background-position:50% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(5) .wudu-visual{background-position:62.4% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-position:74.8% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-position:87.1% 66%!important}
-body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-position:99.5% 66%!important}
 @media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:88px!important}}
 
 /* FINAL APPROVED ARTWORK — homepage rubric emblems */
-.topic-icon{background-size:160% auto!important;background-position:center 16%!important}
-.topic-card[href*="piliers"] .topic-icon{background-image:url('emble%CC%80me_dore%CC%81_des_cinq_piliers_de_l_islam.png')!important}
-.topic-card[href="#noms"] .topic-icon{background-image:url('me%CC%81daille_islamique_dore%CC%81e_sur_fond_e%CC%81meraude.png')!important}
-.topic-card[href*="hadiths"] .topic-icon{background-image:url('emble%CC%80me_islamique_dore%CC%81_au_lanternon_lumineux.png')!important}
-.topic-card[href*="invocations"] .topic-icon{background-image:url('emble%CC%80me_dore%CC%81_des_invocations_quotidiennes.png')!important}
-.topic-card[href*="priere"] .topic-icon{background-image:url('e%CC%81le%CC%81gance_nocturne_de_la_prie%CC%80re_musulmane.png')!important}
-.topic-card[href*="prophetes"] .topic-icon{background-image:url('prophe%CC%80tes_oasis_dore%CC%81e_sous_la_lune.png')!important}
-
-/* FINAL APPROVED ARTWORK — individual wudu steps */
-body[data-page="priere"] .wudu-visual{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#0d3a31!important}
-body[data-page="priere"] .wudu-card:nth-child(1) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_mains_sous_l_eau.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(2) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_buccal.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(3) .wudu-visual{background-image:url('me%CC%81daillon_dore%CC%81_du_rinc%CC%A7age_nasal.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(4) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_des_ablutions_sur_fond_e%CC%81meraude.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(5) .wudu-visual{background-image:url('lavage_rituel_des_bras_sous_l_eau.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(6) .wudu-visual{background-image:url('emble%CC%80me_dore%CC%81_du_lavage_rituel.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(7) .wudu-visual{background-image:url('ico%CC%82ne_dore%CC%81e_du_lavage_de_l_oreille.png')!important}
-body[data-page="priere"] .wudu-card:nth-child(8) .wudu-visual{background-image:url('ablution_dore%CC%81e_sous_arche_islamique.png')!important}
-@media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:96px!important}}
+.topic-icon{background-size:160% auto!important;background-position:center 16%!important}/* FINAL APPROVED ARTWORK — individual wudu steps */
+body[data-page="priere"] .wudu-visual{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-color:#0d3a31!important}@media(max-width:640px){body[data-page="priere"] .wudu-visual{width:100%!important;height:96px!important}}
