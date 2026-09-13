@@ -1,0 +1,33 @@
+name: Bump home CSS cache v16
+
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-home-css-v16.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump polish CSS cache version
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s2 = s.replace('polish.css?v=14', 'polish.css?v=16')
+          if s2 == s:
+              raise SystemExit('polish.css?v=14 not found')
+          p.write_text(s2, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Force refresh homepage CSS v16"
+          git push
