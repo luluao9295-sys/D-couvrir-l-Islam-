@@ -184,26 +184,6 @@ body[data-page="priere"] .hero > .container{
   }
 }
 
-/* Remplace proprement le libellé de la rubrique sans jamais afficher l'ancien texte. */
-a[href="prophetes.html"]{
-  position:relative!important;
-  text-indent:-9999px!important;
-  overflow:hidden!important;
-}
-a[href="prophetes.html"]::after{
-  content:"L’histoire des prophètes"!important;
-  display:block!important;
-  text-indent:0!important;
-  font-size:13px!important;
-  font-weight:800!important;
-}
-@media(max-width:900px){
-  .mobile-collapsible a[href="prophetes.html"]::after,
-  .site-header .nav#mainNav a[href="prophetes.html"]::after{
-    font-size:16px!important;
-  }
-}
-
 /* Page Prophètes : section plus sobre, sans barre de recherche. */
 body[data-page="prophetes"] .prophet-tools{
   display:none!important;
