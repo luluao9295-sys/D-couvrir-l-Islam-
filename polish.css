@@ -46,7 +46,7 @@ body[data-page="home"] #rubriques .topic-card::before{
   content:""!important;position:absolute!important;inset:0!important;height:auto!important;z-index:-1!important;
   background:linear-gradient(180deg,rgba(5,34,28,.02) 10%,rgba(5,34,28,.14) 42%,rgba(5,34,28,.91) 100%)!important;opacity:1!important;
 }
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/rubrique-prophetes.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="noms"]{display:flex!important;background-image:url('assets/banner-99noms.png')!important}
 body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
@@ -57,32 +57,6 @@ body[data-page="home"] #rubriques .topic-card h3{color:#fff7df!important;font-si
 body[data-page="home"] #rubriques .topic-card p{color:#f1e8d5!important;font-size:16px!important;text-shadow:0 2px 14px rgba(0,0,0,.4)!important}
 body[data-page="home"] #rubriques .topic-card .topic-label{color:#f0ce82!important;background:rgba(7,43,35,.6)!important;border:1px solid rgba(240,206,130,.32)!important;padding:7px 10px!important;border-radius:999px!important;width:max-content!important;backdrop-filter:blur(7px)}
 body[data-page="home"] #rubriques .topic-card::after{color:#f2d084!important;font-size:28px!important;right:24px!important;bottom:22px!important}
-
-/* La carte Prophètes garde sa bannière d’origine ; seul le texte est aligné comme les autres cartes */
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{
-  justify-content:flex-end!important;
-  align-items:flex-start!important;
-  text-align:left!important;
-}
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"] .topic-label,
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"] h3,
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"] p{
-  position:relative!important;
-  inset:auto!important;
-  width:auto!important;
-  max-width:none!important;
-  margin-left:0!important;
-  margin-right:0!important;
-  text-align:left!important;
-  align-self:flex-start!important;
-  transform:none!important;
-}
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"] h3{
-  font-size:30px!important;
-  line-height:1.15!important;
-  margin-top:0!important;
-  margin-bottom:8px!important;
-}
 
 /* Keep the homepage simple: no full 99 names list */
 body[data-page="home"] #parcours .path-card .step{display:none!important}
@@ -171,6 +145,5 @@ body[data-page="noms"] #noms{padding-top:54px!important}
   body[data-page="home"] #rubriques .grid{gap:16px!important}
   body[data-page="home"] #rubriques .topic-card{min-height:330px!important;padding:22px!important;border-radius:24px!important}
   body[data-page="home"] #rubriques .topic-card h3{font-size:27px!important;margin-bottom:8px!important}
-  body[data-page="home"] #rubriques .topic-card[href*="prophetes"] h3{font-size:27px!important}
   .section{padding-top:48px!important;padding-bottom:48px!important}
 }
