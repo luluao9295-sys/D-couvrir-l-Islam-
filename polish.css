@@ -58,6 +58,9 @@ body[data-page="home"] #rubriques .topic-card p{color:#f1e8d5!important;font-siz
 body[data-page="home"] #rubriques .topic-card .topic-label{color:#f0ce82!important;background:rgba(7,43,35,.6)!important;border:1px solid rgba(240,206,130,.32)!important;padding:7px 10px!important;border-radius:999px!important;width:max-content!important;backdrop-filter:blur(7px)}
 body[data-page="home"] #rubriques .topic-card::after{color:#f2d084!important;font-size:28px!important;right:24px!important;bottom:22px!important}
 
+/* Carte Prophètes : retirer uniquement le titre jaune superposé */
+body[data-page="home"] #rubriques .topic-card[href*="prophetes"] h3{display:none!important}
+
 /* Keep the homepage simple: no full 99 names list */
 body[data-page="home"] #parcours .path-card .step{display:none!important}
 body[data-page="home"] #noms{display:none!important}
