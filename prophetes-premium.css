@@ -1,5 +1,7 @@
-/* Premium emerald & gold DA for the Prophets page */
-body[data-page="prophetes"] .hero{background:radial-gradient(circle at 82% 18%,rgba(208,171,91,.28),transparent 24%),radial-gradient(circle at 16% 84%,rgba(18,61,52,.12),transparent 30%),linear-gradient(135deg,#f7efe2 0%,#e7eee8 54%,#f7f0e3 100%)!important}
+/* Prophetes — feuille propre et unique pour les 25 logos WebP */
+body[data-page="prophetes"] .hero{
+  background:radial-gradient(circle at 82% 18%,rgba(208,171,91,.28),transparent 24%),radial-gradient(circle at 16% 84%,rgba(18,61,52,.12),transparent 30%),linear-gradient(135deg,#f7efe2 0%,#e7eee8 54%,#f7f0e3 100%)!important;
+}
 body[data-page="prophetes"] .hero::before{background:linear-gradient(120deg,transparent 52%,rgba(18,61,52,.055)),radial-gradient(circle at 78% 32%,rgba(255,225,157,.32),transparent 18%)!important}
 body[data-page="prophetes"] .hero::after{background-image:url('assets/premium-prophetes.svg')!important;width:min(38vw,470px)!important;opacity:.98!important;filter:drop-shadow(0 28px 34px rgba(18,61,52,.18))!important}
 body[data-page="prophetes"] .notice{border:1px solid rgba(185,147,82,.24)!important;border-left:3px solid #b99352!important;background:rgba(255,255,255,.78)!important;box-shadow:0 16px 40px rgba(18,61,52,.08)!important}
@@ -9,47 +11,63 @@ body[data-page="prophetes"] .card::before{height:3px!important;background:linear
 body[data-page="prophetes"] .card::after{width:180px!important;height:180px!important;right:-70px!important;bottom:-75px!important;background:radial-gradient(circle,rgba(185,147,82,.14),rgba(185,147,82,0) 68%)!important}
 body[data-page="prophetes"] .card:hover{transform:translateY(-5px)!important;border-color:rgba(185,147,82,.5)!important;box-shadow:0 28px 70px rgba(18,61,52,.16)!important}
 body[data-page="prophetes"] .number{width:44px!important;height:44px!important;background:linear-gradient(145deg,#0d3a31,#1b5c4d)!important;color:#f7e4b4!important;border:1px solid rgba(205,166,87,.65)!important;box-shadow:0 10px 26px rgba(18,61,52,.2)!important;font-family:Georgia,serif!important}
-body[data-page="prophetes"] .symbol{width:50px!important;height:50px!important;border-radius:16px!important;background-color:#0d3a31!important;border:1px solid rgba(185,147,82,.48)!important;box-shadow:0 10px 24px rgba(18,61,52,.16),inset 0 0 0 1px rgba(255,255,255,.12)!important;font-size:0!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;overflow:hidden!important;padding:0!important}
-body[data-page="prophetes"] .symbol::before,body[data-page="prophetes"] .symbol::after{display:none!important}
-body[data-page="prophetes"] .symbol img{display:none!important}
+
+/* Logos : une seule methode, uniquement les <img> WebP injectees par prophetes.html */
+html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol,
+html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol{
+  display:grid!important;
+  place-items:center!important;
+  width:50px!important;
+  height:50px!important;
+  min-width:50px!important;
+  min-height:50px!important;
+  padding:0!important;
+  margin-bottom:14px!important;
+  border-radius:16px!important;
+  overflow:hidden!important;
+  background:none!important;
+  background-image:none!important;
+  border:1px solid rgba(185,147,82,.48)!important;
+  box-shadow:0 10px 24px rgba(18,61,52,.16)!important;
+}
+html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol::before,
+html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol::after,
+html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol::before,
+html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol::after{
+  display:none!important;
+  content:none!important;
+}
+html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol > img,
+html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol > img{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:static!important;
+  inset:auto!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  filter:none!important;
+  transform:none!important;
+  z-index:1!important;
+}
+
 body[data-page="prophetes"] .card h3{font-size:31px!important;letter-spacing:-.035em!important;margin-top:2px!important}
 body[data-page="prophetes"] .meta{color:#a77b35!important;font-size:11px!important;letter-spacing:.11em!important;margin-bottom:16px!important}
 body[data-page="prophetes"] .row{border-top-color:rgba(185,147,82,.18)!important;padding-top:15px!important;margin-top:15px!important}
 body[data-page="prophetes"] .row strong{font-size:12px!important;text-transform:uppercase!important;letter-spacing:.07em!important;color:#123d34!important}
 body[data-page="prophetes"] .lesson{background:linear-gradient(135deg,rgba(18,61,52,.055),rgba(185,147,82,.10))!important;border:1px solid rgba(185,147,82,.2)!important;border-radius:16px!important;padding:15px 16px!important}
 body[data-page="prophetes"] .source{border-top:1px solid rgba(185,147,82,.15);padding-top:12px!important}
+
 @media(max-width:900px){body[data-page="prophetes"] .hero::after{width:min(92%,430px)!important;margin:26px auto 0!important}}
-@media(max-width:560px){body[data-page="prophetes"] .card{padding:22px!important;border-radius:24px!important}body[data-page="prophetes"] .symbol{width:46px!important;height:46px!important;border-radius:15px!important}body[data-page="prophetes"] .card h3{font-size:27px!important}}
-
-/* Affichage direct des 25 visuels premium WebP */
-body[data-page="prophetes"] #prophetGrid .card:nth-child(1) .symbol{background-image:url('01-adam.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(2) .symbol{background-image:url('02-idris.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(3) .symbol{background-image:url('03-nuh.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(4) .symbol{background-image:url('04-hud.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(5) .symbol{background-image:url('05-salih.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(6) .symbol{background-image:url('06-ibrahim.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(7) .symbol{background-image:url('07-lut.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(8) .symbol{background-image:url('08-ismail.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(9) .symbol{background-image:url('09-ishaq.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(10) .symbol{background-image:url('10-yaqub.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(11) .symbol{background-image:url('11-yusuf.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(12) .symbol{background-image:url('12-ayyub.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(13) .symbol{background-image:url('13-shuayb.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(14) .symbol{background-image:url('14-musa.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(15) .symbol{background-image:url('15-harun.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(16) .symbol{background-image:url('16-dhul-kifl.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(17) .symbol{background-image:url('17-dawud.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(18) .symbol{background-image:url('18-sulayman.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(19) .symbol{background-image:url('19-ilyas.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(20) .symbol{background-image:url('20-al-yasa.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(21) .symbol{background-image:url('21-yunus.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(22) .symbol{background-image:url('22-zakariya.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(23) .symbol{background-image:url('23-yahya.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(24) .symbol{background-image:url('24-isa.webp')!important}
-body[data-page="prophetes"] #prophetGrid .card:nth-child(25) .symbol{background-image:url('25-muhammad.webp')!important}
-
-/* Fiche ouverte : même logo, même taille normale */
-body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol{display:grid!important;width:50px!important;height:50px!important;border-radius:16px!important;overflow:hidden!important;padding:0!important;background:#0d3a31!important}
-body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol::before{display:none!important}
-body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol>img{display:block!important;opacity:1!important;position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;filter:none!important;z-index:3!important}
-@media(max-width:560px){body[data-page="prophetes"] .prophet-dialog .symbol.prophet-symbol{width:46px!important;height:46px!important}}
+@media(max-width:560px){
+  body[data-page="prophetes"] .card{padding:22px!important;border-radius:24px!important}
+  body[data-page="prophetes"] .card h3{font-size:27px!important}
+  html body[data-page="prophetes"] #prophetGrid .card .symbol.prophet-symbol,
+  html body[data-page="prophetes"] #prophetModal #prophetDialogBody .prophet-detail .symbol.prophet-symbol{
+    width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;border-radius:15px!important;
+  }
+}
