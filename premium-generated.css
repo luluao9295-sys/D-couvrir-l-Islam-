@@ -1,4 +1,3 @@
-@import url('wudu-fix.css?v=3');
 /* Premium generated category emblems — emerald & gold */
 body[data-page="piliers"]{--page-art:url('assets/premium-piliers.webp')!important}
 body[data-page="hadiths"]{--page-art:url('assets/premium-hadiths.webp')!important}
@@ -78,11 +77,11 @@ body[data-page="prophetes"] .hero{
   display:flex;
   align-items:center;
 }
-body[data-page="piliers"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-piliers.png')!important}
-body[data-page="hadiths"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-hadiths.png')!important}
-body[data-page="invocations"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-invocations.png')!important}
-body[data-page="priere"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-priere.png')!important}
-body[data-page="prophetes"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-prophetes.png')!important}
+body[data-page="piliers"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-piliers.webp')!important}
+body[data-page="hadiths"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-hadiths.webp')!important}
+body[data-page="invocations"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-invocations.webp')!important}
+body[data-page="priere"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-priere.webp')!important}
+body[data-page="prophetes"] .hero{background-image:linear-gradient(90deg,rgba(6,35,29,.92) 0%,rgba(6,35,29,.76) 44%,rgba(6,35,29,.22) 100%),url('assets/banner-prophetes.webp')!important}
 body[data-page="piliers"] .hero::after,
 body[data-page="hadiths"] .hero::after,
 body[data-page="invocations"] .hero::after,
@@ -118,7 +117,7 @@ body[data-page="home"] #noms::before{
   margin:0 auto 34px;
   aspect-ratio:16/6;
   border-radius:28px;
-  background-image:url('assets/banner-99noms.png');
+  background-image:url('assets/banner-99noms.webp');
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -186,12 +185,12 @@ body[data-page="home"] #rubriques .topic-card .topic-label{color:#f1cf7a!importa
 body[data-page="home"] #rubriques .topic-card h3{color:#fff8e8!important;text-shadow:0 3px 18px rgba(0,0,0,.5);font-size:clamp(27px,3vw,38px)!important}
 body[data-page="home"] #rubriques .topic-card p{color:#f6ecda!important;text-shadow:0 2px 14px rgba(0,0,0,.46);font-size:16px!important}
 body[data-page="home"] #rubriques .topic-card::after{color:#f0cf7a!important;z-index:2!important}
-body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="noms"]{background-image:url('assets/banner-99noms.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="invocations"]{background-image:url('assets/banner-invocations.png')!important}
-body[data-page="home"] #rubriques .topic-card[href*="priere"]{background-image:url('assets/banner-priere.png')!important}
+body[data-page="home"] #rubriques .topic-card[href*="prophetes"]{background-image:url('assets/banner-prophetes.webp')!important}
+body[data-page="home"] #rubriques .topic-card[href*="piliers"]{background-image:url('assets/banner-piliers.webp')!important}
+body[data-page="home"] #rubriques .topic-card[href*="noms"]{background-image:url('assets/banner-99noms.webp')!important}
+body[data-page="home"] #rubriques .topic-card[href*="hadiths"]{background-image:url('assets/banner-hadiths.webp')!important}
+body[data-page="home"] #rubriques .topic-card[href*="invocations"]{background-image:url('assets/banner-invocations.webp')!important}
+body[data-page="home"] #rubriques .topic-card[href*="priere"]{background-image:url('assets/banner-priere.webp')!important}
 @media(max-width:640px){
   body[data-page="home"] #rubriques .topic-card{min-height:285px!important;border-radius:24px!important;padding:20px!important}
   body[data-page="home"] #rubriques .topic-card h3{font-size:30px!important}
