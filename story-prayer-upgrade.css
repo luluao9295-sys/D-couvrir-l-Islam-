@@ -111,3 +111,36 @@ body[data-page="prophetes"] .card:nth-child(5n+5) .symbol{background-position:-2
   body[data-page="priere"] .five .prayer::after{top:80px!important;height:38px!important}
 }
 @media(max-width:430px){body[data-page="priere"] .five{grid-template-columns:1fr!important}body[data-page="priere"] .five .prayer{min-height:260px!important}}
+
+/* Fix définitif : le titre de section Prophètes doit rester entièrement visible au-dessus des cartes. */
+body[data-page="prophetes"] .section-head{
+  position:relative!important;
+  z-index:3!important;
+  margin-bottom:30px!important;
+  overflow:visible!important;
+}
+body[data-page="prophetes"] .section-head h2{
+  display:block!important;
+  font-family:Georgia,serif!important;
+  font-size:clamp(32px,5vw,50px)!important;
+  line-height:1.08!important;
+  margin:16px 0 0!important;
+  color:var(--green)!important;
+  overflow:visible!important;
+}
+body[data-page="prophetes"] .section-head h2::after{
+  content:none!important;
+  display:none!important;
+}
+body[data-page="prophetes"] .grid{
+  position:relative!important;
+  z-index:1!important;
+}
+@media(max-width:640px){
+  body[data-page="prophetes"] .section-head{margin-bottom:26px!important}
+  body[data-page="prophetes"] .section-head h2{
+    font-size:38px!important;
+    line-height:1.08!important;
+    white-space:normal!important;
+  }
+}
